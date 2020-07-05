@@ -613,6 +613,11 @@ PrefabInstance:
       propertyPath: paddle
       value: 
       objectReference: {fileID: 913387523}
+    - target: {fileID: 4013583178102361795, guid: 67bbf2c613eda574c88da9f422d178a4,
+        type: 3}
+      propertyPath: baseSpeed
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4013583178102361807, guid: 67bbf2c613eda574c88da9f422d178a4,
         type: 3}
       propertyPath: m_Name

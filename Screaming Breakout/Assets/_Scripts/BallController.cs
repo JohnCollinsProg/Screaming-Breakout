@@ -9,11 +9,13 @@ public class BallController : MonoBehaviour
     public float speedIncrement;
     public float maxSpeed;
     public float rotationRate;
+    public float maxPaddleAngle = 70f;
 
     // 0 = follow cursor, 1 =  bouncing
     private int mode;
     private Vector3 defaultPos;
     private Vector3 basePos;
+    private Vector3 lastVelocity;
     private float rotation;
     private int rotationDirection = -1;
 
@@ -36,6 +38,9 @@ public class BallController : MonoBehaviour
         {
             mode = 1;
             // Give the ball a velocity, with direction based on the position of the paddle relative to screen center. 
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            float xVelo = transform.position.x / 2f;
+            rb.velocity = new Vector2(xVelo, baseSpeed);
         }
         if (mode == 0)  // Initially the ball is attached to the paddle, until left mouse is clicked. 
         {
@@ -49,6 +54,7 @@ public class BallController : MonoBehaviour
             rotation += rotationRate * Time.deltaTime;
             transform.rotation = Quaternion.Euler(0f, 0f, rotation);
         }
+        lastVelocity = rb.velocity;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -56,7 +62,32 @@ public class BallController : MonoBehaviour
         if (collision.gameObject.tag == "Hazzard")  // Ball has hit the board below the paddle, return to paddle
         {
             mode = 0;
-            gCont.HitHazzard();
+            gCont.HitHazzard(); // Tell the game controller that the ball has hit the wall under the paddle
+        }
+        else if (collision.gameObject.layer == 9 || collision.gameObject.layer == 10)   // Ball hit either the side or back walls,  or a block
+        {
+            float speed = lastVelocity.magnitude;
+            Vector3 direction = Vector3.Reflect(lastVelocity.normalized, collision.GetContact(0).normal);
+            rb.velocity = direction * Mathf.Max(speed);
+            rotationDirection *= -1;// Reverse direction of ball rotation
+        }
+        if (collision.gameObject.layer == 8)    // Ball hit the paddle
+        {
+            float speed = lastVelocity.magnitude * speedIncrement;
+            float xDifference = paddle.transform.position.x - transform.position.x;
+            float outAngle = maxPaddleAngle * (xDifference / 4) * Mathf.Deg2Rad;
+            Vector3 outAngleV = new Vector3(0f, 0f, outAngle);
+
+            /*Vector3 difference = paddle.transform.position - transform.position;
+            Vector3 direction = Vector3.Reflect(lastVelocity.normalized, difference);
+            rb.velocity = speed * direction;*/
+
+            rotationDirection *= -1;
+        }
+
+        if (collision.gameObject.layer == 10)   // Ball hit a block, tell game controller to score
+        {
+
         }
     }
 }
