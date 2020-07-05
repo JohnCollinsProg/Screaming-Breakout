@@ -620,6 +620,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67bbf2c613eda574c88da9f422d178a4, type: 3}
+--- !u!1 &4013583178887782107 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4013583178102361807, guid: 67bbf2c613eda574c88da9f422d178a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 4013583178887782106}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4442132250527358319
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -689,6 +695,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44cfd5dbed34dd840a76ad3766a9d08c, type: 3}
+--- !u!1 &4442132250527358320 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4442132250978974645, guid: 44cfd5dbed34dd840a76ad3766a9d08c,
+    type: 3}
+  m_PrefabInstance: {fileID: 4442132250527358319}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4442132250527358321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4442132250527358320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84afaa2b64ab2524fb65f10e6a7d1603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballObj: {fileID: 4013583178887782107}
+  paddleObj: {fileID: 913387523}
+  startingLives: 5
 --- !u!1001 &9058994449234444648
 PrefabInstance:
   m_ObjectHideFlags: 0

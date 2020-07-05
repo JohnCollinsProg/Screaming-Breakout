@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\_Scripts\BallController.cs" />
+    <Compile Include="Assets\_Scripts\GameController.cs" />
     <Compile Include="Assets\_Scripts\PaddleControllerV1.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/Unity Projects/Git/Screaming Breakout/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/SceneJohn.unity
+- path: Assets/Scenes/Go Away!!.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

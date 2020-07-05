@@ -200,6 +200,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d425b79eeb6eae4aa70bf7323b14086, type: 3}
+--- !u!1 &33182373 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3216579109505675421, guid: 8d425b79eeb6eae4aa70bf7323b14086,
+    type: 3}
+  m_PrefabInstance: {fileID: 33182372}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,6 +351,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4013583178102361795, guid: 67bbf2c613eda574c88da9f422d178a4,
+        type: 3}
+      propertyPath: paddle
+      value: 
+      objectReference: {fileID: 33182373}
     - target: {fileID: 4013583178102361807, guid: 67bbf2c613eda574c88da9f422d178a4,
         type: 3}
       propertyPath: m_Name
@@ -352,6 +363,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67bbf2c613eda574c88da9f422d178a4, type: 3}
+--- !u!1 &1211314424 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4013583178102361807, guid: 67bbf2c613eda574c88da9f422d178a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1211314423}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1445563715
 GameObject:
   m_ObjectHideFlags: 0
@@ -757,3 +774,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44cfd5dbed34dd840a76ad3766a9d08c, type: 3}
+--- !u!1 &2140331840 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4442132250978974645, guid: 44cfd5dbed34dd840a76ad3766a9d08c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2140331839}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2140331841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140331840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84afaa2b64ab2524fb65f10e6a7d1603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballObj: {fileID: 1211314424}
+  paddleObj: {fileID: 33182373}
+  startingLives: 5

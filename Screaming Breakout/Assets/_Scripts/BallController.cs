@@ -18,10 +18,12 @@ public class BallController : MonoBehaviour
     private int rotationDirection = -1;
 
     private Rigidbody2D rb;
+    private GameController gCont;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        gCont = GameObject.Find("Game Controller").GetComponent<GameController>();
         defaultPos = transform.position;
         basePos = new Vector3(0f, defaultPos.y, defaultPos.z);
         mode = 0;
@@ -54,7 +56,7 @@ public class BallController : MonoBehaviour
         if (collision.gameObject.tag == "Hazzard")  // Ball has hit the board below the paddle, return to paddle
         {
             mode = 0;
-            // Tell game controller to deduct a life and make a really awful sound
+            gCont.HitHazzard();
         }
     }
 }
