@@ -95,6 +95,7 @@ public class BallController : MonoBehaviour
         {
 
         }
+        gCont.collisionFX(collision);
     }
 
     private void checkSpeedLimit()
