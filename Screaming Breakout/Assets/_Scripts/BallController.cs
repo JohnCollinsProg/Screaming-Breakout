@@ -7,7 +7,7 @@ public class BallController : MonoBehaviour
     public GameObject paddle;
     public float baseSpeed;
     public float speedIncrement;
-    public float maxSpeed;
+    public float maxSpeed = 10f;
     public float rotationRate;
     public float maxPaddleAngle = 70f;
 
@@ -45,13 +45,13 @@ public class BallController : MonoBehaviour
         if (mode == 0)  // Initially the ball is attached to the paddle, until left mouse is clicked. 
         {
             transform.position = basePos + new Vector3(paddle.transform.position.x, 0f, 0f);    // I am using this instead of parenting because it is easier to detach and preserves the scaling. 
-            rotation += rotationRate * 1.2f * Time.deltaTime;
+            rotation += rotationRate * rotationDirection * 1.2f * Time.deltaTime;
             transform.rotation = Quaternion.Euler(0f, 0f, rotation);
         }
 
         if (mode == 1)  // Ball is released and bouncing around normally
         {
-            rotation += rotationRate * Time.deltaTime;
+            rotation += rotationRate * rotationDirection * Time.deltaTime;
             transform.rotation = Quaternion.Euler(0f, 0f, rotation);
         }
         lastVelocity = rb.velocity;
@@ -86,6 +86,7 @@ public class BallController : MonoBehaviour
             // Dunno what the z value should be for the vector
             Vector3 direction = new Vector3(-Mathf.Sin(outAngle), Mathf.Cos(outAngle), 0);      // Calculate vector for new ball direction
             rb.velocity = speed * direction;
+            checkSpeedLimit();
 
             rotationDirection *= -1;
         }
@@ -93,6 +94,14 @@ public class BallController : MonoBehaviour
         if (collision.gameObject.layer == 10)   // Ball hit a block, tell game controller to score
         {
 
+        }
+    }
+
+    private void checkSpeedLimit()
+    {
+        if (rb.velocity.magnitude > maxSpeed)
+        {
+            rb.velocity = rb.velocity.normalized * maxSpeed;
         }
     }
 }

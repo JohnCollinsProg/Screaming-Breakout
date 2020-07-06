@@ -97,10 +97,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paddle: {fileID: 0}
-  baseSpeed: 0
-  speedIncrement: 0
-  maxSpeed: 0
+  baseSpeed: 7
+  speedIncrement: 1.05
+  maxSpeed: 15
   rotationRate: 30
+  maxPaddleAngle: 70
 --- !u!58 &4013583178102361804
 CircleCollider2D:
   m_ObjectHideFlags: 0
