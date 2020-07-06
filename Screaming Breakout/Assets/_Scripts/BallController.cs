@@ -75,12 +75,17 @@ public class BallController : MonoBehaviour
         {
             float speed = lastVelocity.magnitude * speedIncrement;
             float xDifference = paddle.transform.position.x - transform.position.x;
-            float outAngle = maxPaddleAngle * (xDifference / 4) * Mathf.Deg2Rad;
-            Vector3 outAngleV = new Vector3(0f, 0f, outAngle);
+            // float outAngle = maxPaddleAngle * (xDifference / 4) * Mathf.Deg2Rad;
+            // Vector3 outAngleV = new Vector3(0f, 0f, outAngle);
 
-            /*Vector3 difference = paddle.transform.position - transform.position;
-            Vector3 direction = Vector3.Reflect(lastVelocity.normalized, difference);
-            rb.velocity = speed * direction;*/
+            // Vector3 difference = paddle.transform.position - transform.position;
+            // Vector3 direction = Vector3.Reflect(lastVelocity.normalized, difference);
+            // rb.velocity = speed * direction;
+
+            float outAngle = xDifference / 2;      // Scale from -1 to 1 of where the ball hit the paddle
+            // Dunno what the z value should be for the vector
+            Vector3 direction = new Vector3(-Mathf.Sin(outAngle), Mathf.Cos(outAngle), 0);      // Calculate vector for new ball direction
+            rb.velocity = speed * direction;
 
             rotationDirection *= -1;
         }
