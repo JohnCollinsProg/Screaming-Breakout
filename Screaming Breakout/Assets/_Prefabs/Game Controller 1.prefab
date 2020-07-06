@@ -45,6 +45,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballObj: {fileID: 0}
   paddleObj: {fileID: 0}
+  startingLives: 5
+  lightThreshold: 5
+  mediumThreshold: 8
+  heavyThreshold: 13
   screamsLight:
   - {fileID: 0}
   - {fileID: 0}
@@ -57,4 +61,3 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  startingLives: 5

@@ -93,9 +93,14 @@ public class BallController : MonoBehaviour
 
         if (collision.gameObject.layer == 10)   // Ball hit a block, tell game controller to score
         {
-
+            gCont.HitBlock(collision.gameObject);
         }
-        gCont.collisionFX(collision);
+
+        if (collision.gameObject.layer == 9)
+        {
+            gCont.HitWall();
+        }
+        //gCont.collisionFX(collision);
     }
 
     private void checkSpeedLimit()
@@ -104,5 +109,10 @@ public class BallController : MonoBehaviour
         {
             rb.velocity = rb.velocity.normalized * maxSpeed;
         }
+    }
+
+    public float GetSpeed()
+    {
+        return rb.velocity.magnitude;
     }
 }
