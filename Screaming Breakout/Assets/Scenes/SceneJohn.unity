@@ -502,6 +502,51 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2763947582371387305, guid: ca3621408169991418b2972c64f5c810,
+        type: 3}
+      propertyPath: m_TagString
+      value: Point Block
+      objectReference: {fileID: 0}
+    - target: {fileID: 2763947582428109454, guid: ca3621408169991418b2972c64f5c810,
+        type: 3}
+      propertyPath: m_TagString
+      value: Point Block
+      objectReference: {fileID: 0}
+    - target: {fileID: 2763947582526963260, guid: ca3621408169991418b2972c64f5c810,
+        type: 3}
+      propertyPath: m_TagString
+      value: Point Block
+      objectReference: {fileID: 0}
+    - target: {fileID: 2763947582857954982, guid: ca3621408169991418b2972c64f5c810,
+        type: 3}
+      propertyPath: m_TagString
+      value: Point Block
+      objectReference: {fileID: 0}
+    - target: {fileID: 2763947582924639129, guid: ca3621408169991418b2972c64f5c810,
+        type: 3}
+      propertyPath: m_TagString
+      value: Point Block
+      objectReference: {fileID: 0}
+    - target: {fileID: 2763947582999660795, guid: ca3621408169991418b2972c64f5c810,
+        type: 3}
+      propertyPath: m_TagString
+      value: Point Block
+      objectReference: {fileID: 0}
+    - target: {fileID: 2763947583039136626, guid: ca3621408169991418b2972c64f5c810,
+        type: 3}
+      propertyPath: m_TagString
+      value: Point Block
+      objectReference: {fileID: 0}
+    - target: {fileID: 2763947583274817694, guid: ca3621408169991418b2972c64f5c810,
+        type: 3}
+      propertyPath: m_TagString
+      value: Point Block
+      objectReference: {fileID: 0}
+    - target: {fileID: 2763947583398718527, guid: ca3621408169991418b2972c64f5c810,
+        type: 3}
+      propertyPath: m_TagString
+      value: Point Block
+      objectReference: {fileID: 0}
     - target: {fileID: 2763947583529847854, guid: ca3621408169991418b2972c64f5c810,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -561,6 +606,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Destructables
+      objectReference: {fileID: 0}
+    - target: {fileID: 2763947583643207359, guid: ca3621408169991418b2972c64f5c810,
+        type: 3}
+      propertyPath: m_TagString
+      value: Point Block
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca3621408169991418b2972c64f5c810, type: 3}
