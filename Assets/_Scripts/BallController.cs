@@ -94,5 +94,10 @@ public class BallController : MonoBehaviour
         {
 
         }
+        gCont.collisionFX(collision);
+    }
+
+    public Rigidbody2D GetRigidbody() {
+        return this.rb;
     }
 }
