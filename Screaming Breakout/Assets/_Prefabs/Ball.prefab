@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paddle: {fileID: 0}
-  baseSpeed: 7
-  speedIncrement: 1.05
+  baseSpeed: 6
+  speedIncrement: 1.03
   maxSpeed: 15
   rotationRate: 30
   maxPaddleAngle: 70

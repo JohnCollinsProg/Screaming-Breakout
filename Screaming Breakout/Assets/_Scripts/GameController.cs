@@ -42,13 +42,18 @@ public class GameController : MonoBehaviour
     private int GetRemainingBlocks()
     {
         int count = 0;
-        //foreach (GameObject obj in destructables.transform.get)
-        //{
-
-        //}
-
+        int range = destructables.transform.childCount;
+        for (int i = 0; i < range; i++)
+{
+            if (destructables.transform.GetChild(i).gameObject.tag == "Point Block")
+            {
+                count++;
+            }
+        }
         return count;
     }
+
+    //public void 
 
     public void collisionFX(Collision2D collision) {
         if (collision.gameObject.tag == "Hazzard")  // Ball has hit the board below the paddle
