@@ -89,6 +89,7 @@ public class BallController : MonoBehaviour
             checkSpeedLimit();
 
             rotationDirection *= -1;
+            gCont.HitPaddle();
         }
 
         if (collision.gameObject.layer == 10)   // Ball hit a block, tell game controller to score
