@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 3216579109505675418}
   - component: {fileID: 3216579109505675419}
   - component: {fileID: 2839986226843620011}
+  - component: {fileID: 157689714347865293}
   m_Layer: 8
   m_Name: Player paddle
   m_TagString: Untagged
@@ -108,6 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   edgeClamp: 6.385
+  animator: {fileID: 0}
 --- !u!61 &3216579109505675419
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -184,3 +186,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!95 &157689714347865293
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3216579109505675421}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 964095824eb839d4897791650e2e3bec, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
