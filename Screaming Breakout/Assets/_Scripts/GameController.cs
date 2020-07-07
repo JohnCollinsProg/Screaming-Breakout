@@ -86,7 +86,10 @@ public class GameController : MonoBehaviour
     public void HitBlock(GameObject blockObj)
     {
         Vector3 blockPos = blockObj.transform.position; // Save this location so it can center destruction effect
-        Destroy(blockObj);
+        BlockHealth blockHealth = blockObj.GetComponent<BlockHealth>(); // I don't like this, but I'm not sure how else to implement it. 
+        blockHealth.TakeDamage();
+        if (blockHealth.GetHealth() <= 0)
+            Destroy(blockObj);
         remainingBlocks = GetRemainingBlocks();
         checkBlocksTime = Time.time + 0.01f;
         checkBlocks = true;
