@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour
     public GameObject ballObj;
     private BallController ballCont;
     public GameObject paddleObj;
+    public PaddleControllerV1 paddleCont;
     private GameObject destructables;
 
     public int startingLives;
@@ -44,6 +45,7 @@ public class GameController : MonoBehaviour
         totalBlocks = remainingBlocks;
 
         ballCont = ballObj.GetComponent<BallController>();
+        paddleCont = paddleObj.GetComponent<PaddleControllerV1>();
 
         stageChangeVector = new Vector3(0f, stageDistance, 0f);
     }
@@ -117,6 +119,7 @@ public class GameController : MonoBehaviour
 
     public void HitHazzard()
     {
+        // Somehow the death sound is sometimes played when the ball hits the paddle (even though it doesn't enter this function)
         if (deathSound != null)
             deathSound.Play();
         lives--;
@@ -140,6 +143,7 @@ public class GameController : MonoBehaviour
     public void HitPaddle() 
     {
         PlayVariableScream(ballCont.GetSpeed());
+        paddleCont.PlayHurtAnimation();
     }
 
     public void HitWall()

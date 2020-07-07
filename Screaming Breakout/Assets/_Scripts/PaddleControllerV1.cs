@@ -11,6 +11,7 @@ public class PaddleControllerV1 : MonoBehaviour
     private int inputMode = 0;
 
     public float edgeClamp;
+    public Animator animator;
     
     void Start()
     {
@@ -29,5 +30,13 @@ public class PaddleControllerV1 : MonoBehaviour
             mousePos = Camera.main.ScreenToWorldPoint(mousePos);
             transform.position = basePos + new Vector3(Mathf.Clamp(mousePos.x, -edgeClamp, edgeClamp), 0f, 0f);
         }
+        // Idk why this is not needed, once bool hurt = true, it always true and it should be stuck in the hurt animation??
+        // animator.SetBool("Hurt", false);
+    }
+
+    // Also I cant figure out how to offset the sprite render, im manually offsetting each sprite atm but this is gonna be a pain
+    public void PlayHurtAnimation()
+    {
+        animator.SetBool("Hurt", true);
     }
 }
