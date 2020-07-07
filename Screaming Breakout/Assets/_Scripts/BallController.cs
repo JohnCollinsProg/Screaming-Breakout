@@ -54,6 +54,11 @@ public class BallController : MonoBehaviour
             rotation += rotationRate * rotationDirection * Time.deltaTime;
             transform.rotation = Quaternion.Euler(0f, 0f, rotation);
         }
+        
+    }
+
+    private void FixedUpdate()
+    {
         lastVelocity = rb.velocity;
     }
 

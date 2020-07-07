@@ -43,6 +43,7 @@ public class FallingObject : MonoBehaviour
         }
         if (collision.gameObject.layer == 8)    // Falling object hit the paddle, make it bounce off and fly off screen
         {
+            collision.gameObject.GetComponent<PaddleControllerV1>().TakeImpairingDamage();
             GameObject attractor = GameObject.Find("Out of Bounds Attractor");
             Vector3 towardsAttractor = Vector3.Normalize(attractor.transform.position - transform.position);
             if (transform.position.x > 0) {
