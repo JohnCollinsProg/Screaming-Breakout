@@ -19,20 +19,34 @@ public class GameController : MonoBehaviour
     
 
     private int mode = 0;
+    private int stage = 0;
+    private int totalStages;
     private int lives;
     private int remainingBlocks;
     private int totalBlocks;        // The number of blocks at the start of the game. 
     private float checkBlocksTime;
     private bool checkBlocks = false;
+    private bool moveStage = true;
+    private float stageDistance = -10f;
+    private float timeToChangeStage = 4.5f;
+    //private float stageChangeStartTime;
+    private float stageChangeProgress;
+    private float stageChangeCompleteTime;
+    private Vector3 nextStagePos;
+    private Vector3 stageChangeVector;
 
     void Start()
     {
         lives = startingLives;
         destructables = GameObject.Find("Destructables");
+        totalStages = destructables.transform.childCount;
         remainingBlocks = GetRemainingBlocks();
+        print("init: get remainingBlocks: " + remainingBlocks);
         totalBlocks = remainingBlocks;
 
         ballCont = ballObj.GetComponent<BallController>();
+
+        stageChangeVector = new Vector3(0f, stageDistance, 0f);
     }
 
     // Update is called once per frame
@@ -43,32 +57,56 @@ public class GameController : MonoBehaviour
             remainingBlocks = GetRemainingBlocks();
             checkBlocks = false;
         }
+        if (remainingBlocks == 0)   // All the blocks have been destroyed, progress onto the next stage of the game. 
+        {
+            if (stage + 1 < totalStages)
+            {
+                stage++;
+                print("Stage " + stage + " completed, moving onto stage " + (stage + 1));
+                moveStage = true;
+                //stageChangeStartTime = Time.time;
+                stageChangeCompleteTime = Time.time + timeToChangeStage;
+                stageChangeProgress = 0f;
+                nextStagePos = destructables.transform.position + stageChangeVector;
+            }
+        }
+        if (moveStage)              // The stage is moving to set up the next stage
+        {
+            stageChangeProgress += Time.deltaTime;
+            destructables.transform.position = Vector3.Lerp(destructables.transform.position, nextStagePos, (stageChangeProgress / stageChangeCompleteTime));
+            if (destructables.transform.position.y <= nextStagePos.y)   // The next stage setup is complete. 
+            {
+                destructables.transform.position = nextStagePos;
+                moveStage = false;
+            }
+        }
+
         if (lives <= 0)
         {
             print("You're out of lives you big sodding idiot!!");
         }
-        if (remainingBlocks == 0)
-        {
-            print("You have destroyed all the blocks, congratulations!");
-        }
+        
         if (Input.GetKey(KeyCode.G))
         {
             //print("BallObj has this many children: " + ballObj.transform.childCount);
             remainingBlocks = GetRemainingBlocks();
-            //print("Remainging blocks: " + remainingBlocks);
+            print("Remainging blocks: " + remainingBlocks + ",    stage: " + stage + ",    totalStages: " + totalStages);
         }
     }
 
     private int GetRemainingBlocks()
     {
         int count = 0;
-        int range  = destructables.transform.childCount;
+        //print("Checking remaining blocks, stage = " + stage);
+        //string stageName = "Stage " + stage.ToString();
+        GameObject stageObj = destructables.transform.GetChild(stage).gameObject;
+        int range = stageObj.transform.childCount;
         //print("Destructables has: " + range + " children.");
         if (range > 0) { 
             for (int i = 0; i < range; i++)
             {
                 //print(destructables.transform.GetChild(i).gameObject.name);
-                if (destructables.transform.GetChild(i).gameObject.tag == "Point Block")
+                if (stageObj.transform.GetChild(i).gameObject.tag == "Point Block")
                 {
                     count++;
                 }

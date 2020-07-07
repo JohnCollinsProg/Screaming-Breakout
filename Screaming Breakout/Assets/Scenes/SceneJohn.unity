@@ -514,10 +514,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2763947582371387304, guid: ca3621408169991418b2972c64f5c810,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2763947582371387305, guid: ca3621408169991418b2972c64f5c810,
         type: 3}
       propertyPath: m_TagString
       value: Point Block
+      objectReference: {fileID: 0}
+    - target: {fileID: 2763947582428109449, guid: ca3621408169991418b2972c64f5c810,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2763947582428109454, guid: ca3621408169991418b2972c64f5c810,
         type: 3}
@@ -529,15 +539,35 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Point Block
       objectReference: {fileID: 0}
+    - target: {fileID: 2763947582526963263, guid: ca3621408169991418b2972c64f5c810,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2763947582857954977, guid: ca3621408169991418b2972c64f5c810,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 2763947582857954982, guid: ca3621408169991418b2972c64f5c810,
         type: 3}
       propertyPath: m_TagString
       value: Point Block
       objectReference: {fileID: 0}
+    - target: {fileID: 2763947582924639128, guid: ca3621408169991418b2972c64f5c810,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2763947582924639129, guid: ca3621408169991418b2972c64f5c810,
         type: 3}
       propertyPath: m_TagString
       value: Point Block
+      objectReference: {fileID: 0}
+    - target: {fileID: 2763947582999660794, guid: ca3621408169991418b2972c64f5c810,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2763947582999660795, guid: ca3621408169991418b2972c64f5c810,
         type: 3}
@@ -549,10 +579,25 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Point Block
       objectReference: {fileID: 0}
+    - target: {fileID: 2763947583039136637, guid: ca3621408169991418b2972c64f5c810,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2763947583274817689, guid: ca3621408169991418b2972c64f5c810,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2763947583274817694, guid: ca3621408169991418b2972c64f5c810,
         type: 3}
       propertyPath: m_TagString
       value: Point Block
+      objectReference: {fileID: 0}
+    - target: {fileID: 2763947583398718526, guid: ca3621408169991418b2972c64f5c810,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2763947583398718527, guid: ca3621408169991418b2972c64f5c810,
         type: 3}
@@ -562,17 +607,17 @@ PrefabInstance:
     - target: {fileID: 2763947583529847854, guid: ca3621408169991418b2972c64f5c810,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.4102392
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2763947583529847854, guid: ca3621408169991418b2972c64f5c810,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.74356616
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2763947583529847854, guid: ca3621408169991418b2972c64f5c810,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.1796875
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2763947583529847854, guid: ca3621408169991418b2972c64f5c810,
         type: 3}
@@ -619,15 +664,35 @@ PrefabInstance:
       propertyPath: m_Name
       value: Destructables
       objectReference: {fileID: 0}
+    - target: {fileID: 2763947583643207358, guid: ca3621408169991418b2972c64f5c810,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2763947583643207359, guid: ca3621408169991418b2972c64f5c810,
         type: 3}
       propertyPath: m_TagString
       value: Point Block
       objectReference: {fileID: 0}
+    - target: {fileID: 3441514469592750041, guid: ca3621408169991418b2972c64f5c810,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3658210636841152159, guid: ca3621408169991418b2972c64f5c810,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 4816358094712569357, guid: ca3621408169991418b2972c64f5c810,
         type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5142501684906829780, guid: ca3621408169991418b2972c64f5c810,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5209039345323396034, guid: ca3621408169991418b2972c64f5c810,
         type: 3}
