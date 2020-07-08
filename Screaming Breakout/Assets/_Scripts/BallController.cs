@@ -74,7 +74,7 @@ public class BallController : MonoBehaviour
             mode = 0;
             gCont.HitHazzard(); // Tell the game controller that the ball has hit the wall under the paddle
         }
-        else if (collision.gameObject.layer == 9 || collision.gameObject.layer == 10)   // Ball hit either the side or back walls,  or a block
+        else if (collision.gameObject.layer == 9 || collision.gameObject.layer == 10 || collision.gameObject.layer == 12)   // Ball hit either the side or back walls,  or a block, or boss
         {
             float speed = lastVelocity.magnitude;
             Vector3 direction = Vector3.Reflect(lastVelocity.normalized, collision.GetContact(0).normal);
@@ -110,6 +110,11 @@ public class BallController : MonoBehaviour
         if (collision.gameObject.layer == 9)
         {
             gCont.HitWall();
+        }
+
+        if (collision.gameObject.layer == 12)   // Ball hit the boss
+        {
+
         }
         //gCont.collisionFX(collision);
     }

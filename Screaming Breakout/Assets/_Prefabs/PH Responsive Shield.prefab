@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 1162500222925239310}
   - component: {fileID: 8707964289838951443}
   - component: {fileID: 306103019422293662}
-  m_Layer: 0
-  m_Name: Responsive Shield
+  m_Layer: 9
+  m_Name: PH Responsive Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 1769915548509930730}
   - component: {fileID: 6848684285240150412}
   - component: {fileID: 5189296641237847923}
-  m_Layer: 0
-  m_Name: Shield
+  m_Layer: 9
+  m_Name: PH Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,3 +119,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a98a193704308d24f991848f2f227b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossObj: {fileID: 0}
+  rotationSpeed: 0
+  upperLimit: {fileID: 0}
+  lowerLimit: {fileID: 0}
+  minAngle: 25
+  maxAngle: 80
+  direction: 1
