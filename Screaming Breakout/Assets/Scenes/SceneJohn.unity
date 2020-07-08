@@ -422,6 +422,11 @@ PrefabInstance:
       propertyPath: deathSound
       value: 
       objectReference: {fileID: 399643209}
+    - target: {fileID: 2502010298262281015, guid: d0b72b16bec9bf2419ff23e363be7162,
+        type: 3}
+      propertyPath: bossObj
+      value: 
+      objectReference: {fileID: 1640082205}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0b72b16bec9bf2419ff23e363be7162, type: 3}
 --- !u!1 &396461392
@@ -1125,6 +1130,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1422569867703051114, guid: 4912d069bcb5fdb489b30880718e056e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.61
+      objectReference: {fileID: 0}
     - target: {fileID: 1920470951164752737, guid: 4912d069bcb5fdb489b30880718e056e,
         type: 3}
       propertyPath: bossObj
@@ -1155,18 +1165,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 4178225177500899684, guid: 4912d069bcb5fdb489b30880718e056e,
+    - target: {fileID: 2632871538076101369, guid: 4912d069bcb5fdb489b30880718e056e,
         type: 3}
-      propertyPath: fallingObj
-      value: 
-      objectReference: {fileID: 5401272893002436969, guid: 5bd91668d215f9b44b468993df795de7,
-        type: 3}
-    - target: {fileID: 4178225177500899684, guid: 4912d069bcb5fdb489b30880718e056e,
-        type: 3}
-      propertyPath: responsiveShield
-      value: 
-      objectReference: {fileID: 6487660749070448881, guid: 93f374eaa03b80c41a79573754b9f1c6,
-        type: 3}
+      propertyPath: m_Name
+      value: Falling Object Spawn Lower
+      objectReference: {fileID: 0}
     - target: {fileID: 4178225177500899684, guid: 4912d069bcb5fdb489b30880718e056e,
         type: 3}
       propertyPath: shield1
@@ -1177,6 +1180,26 @@ PrefabInstance:
       propertyPath: shield2
       value: 
       objectReference: {fileID: 71939993}
+    - target: {fileID: 4178225177500899684, guid: 4912d069bcb5fdb489b30880718e056e,
+        type: 3}
+      propertyPath: fallingObjectRange
+      value: 4.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4178225177500899684, guid: 4912d069bcb5fdb489b30880718e056e,
+        type: 3}
+      propertyPath: attackPeriod
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4178225177500899684, guid: 4912d069bcb5fdb489b30880718e056e,
+        type: 3}
+      propertyPath: stage1Threshold
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4178225177500899684, guid: 4912d069bcb5fdb489b30880718e056e,
+        type: 3}
+      propertyPath: stage2Threshold
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8363858508633207296, guid: 4912d069bcb5fdb489b30880718e056e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1578,6 +1601,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Responsive Shield
+      objectReference: {fileID: 0}
+    - target: {fileID: 6487660749070448881, guid: 93f374eaa03b80c41a79573754b9f1c6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93f374eaa03b80c41a79573754b9f1c6, type: 3}

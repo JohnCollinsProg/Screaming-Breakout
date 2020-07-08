@@ -9,6 +9,8 @@ public class GameController : MonoBehaviour
     public GameObject paddleObj;
     public PaddleControllerV1 paddleCont;
     private GameObject destructables;
+    public GameObject bossObj;
+    private BossBehaviour bossBehv;
 
     public int startingLives;
     public float lightThreshold, mediumThreshold, heavyThreshold;
@@ -46,6 +48,7 @@ public class GameController : MonoBehaviour
 
         ballCont = ballObj.GetComponent<BallController>();
         paddleCont = paddleObj.GetComponent<PaddleControllerV1>();
+        bossBehv = bossObj.GetComponent<BossBehaviour>();
 
         stageChangeVector = new Vector3(0f, stageDistance, 0f);
     }
@@ -149,6 +152,12 @@ public class GameController : MonoBehaviour
     public void HitWall()
     {
         PlayLighScream();
+    }
+
+    public void HitBoss()
+    {
+        bossBehv.TakeDamage();
+        // play a sound? Or maybe the boss should do this depending on its health. 
     }
 
     private void PlayVariableScream(float speed) 

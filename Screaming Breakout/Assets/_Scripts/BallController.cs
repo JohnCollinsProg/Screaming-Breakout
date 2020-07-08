@@ -114,7 +114,7 @@ public class BallController : MonoBehaviour
 
         if (collision.gameObject.layer == 12)   // Ball hit the boss
         {
-
+            gCont.HitBoss();
         }
         //gCont.collisionFX(collision);
     }

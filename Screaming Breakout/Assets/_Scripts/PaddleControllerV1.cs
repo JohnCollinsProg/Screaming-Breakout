@@ -42,7 +42,7 @@ public class PaddleControllerV1 : MonoBehaviour
                 mousePos = Camera.main.ScreenToWorldPoint(mousePos);
                 float newXPos = Mathf.Lerp(transform.position.x, mousePos.x, 0.005f);
                 transform.position = basePos + new Vector3(Mathf.Clamp(newXPos, -edgeClamp, edgeClamp), 0f, 0f);
-                print("Mouse X: " + mousePos.x + ",    newXPos: " + newXPos + ",    transform.position.x: " + transform.position.x);
+                //print("Mouse X: " + mousePos.x + ",    newXPos: " + newXPos + ",    transform.position.x: " + transform.position.x);
             }
         }
         // Idk why this is not needed, once bool hurt = true, it always true and it should be stuck in the hurt animation??
