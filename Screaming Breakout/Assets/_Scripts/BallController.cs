@@ -54,7 +54,12 @@ public class BallController : MonoBehaviour
             rotation += rotationRate * rotationDirection * Time.deltaTime;
             transform.rotation = Quaternion.Euler(0f, 0f, rotation);
         }
-        
+
+        if (Input.GetKeyDown(KeyCode.G))    // To be pressed when the ball gets stuck. 
+        {
+            mode = 0;
+            gCont.HitHazzard();
+        }
     }
 
     private void FixedUpdate()
