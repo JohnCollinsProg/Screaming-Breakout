@@ -10,6 +10,8 @@ public class FallingObject : MonoBehaviour
     public float bounceForce;
     private bool released = false;
     private float releaseTime;
+    private bool dead = false;
+    private float cullTime;
 
     private Rigidbody2D rb;
 
@@ -27,6 +29,12 @@ public class FallingObject : MonoBehaviour
             released = false;
         }
 
+    }
+
+    private void Update()
+    {
+        if (dead && Time.time > cullTime)
+            Destroy(gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -50,6 +58,8 @@ public class FallingObject : MonoBehaviour
                 towardsAttractor = new Vector3(-towardsAttractor.x, towardsAttractor.y, towardsAttractor.z);
             }
             rb.AddForce((towardsAttractor * bounceForce), ForceMode2D.Impulse);
+            dead = true;
+            cullTime = Time.time + 5f;
         }
     }
 }

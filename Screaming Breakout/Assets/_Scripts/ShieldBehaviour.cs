@@ -8,6 +8,8 @@ public class ShieldBehaviour : MonoBehaviour
     public float rotationSpeed;
     // Maybe opt for rotation frequency instead if possible??
     private bool active;
+    private bool dead = false;
+    private float cullTime;
     public GameObject upperLimit, lowerLimit;
     public float minAngle, maxAngle;
     private float radMinAngle, radMaxAngle;
@@ -32,7 +34,7 @@ public class ShieldBehaviour : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (active)
+        if (active && !dead)
         {
             float curAngle = Mathf.Atan((transform.position.x - bossObj.transform.position.x) / (transform.position.y - bossObj.transform.position.y));
             if (Mathf.Abs(curAngle) > Mathf.Abs(radMaxAngle) || Mathf.Abs(curAngle) < Mathf.Abs(radMinAngle))
@@ -47,5 +49,24 @@ public class ShieldBehaviour : MonoBehaviour
             //transform.rotation = Quaternion.Euler(0f, 0f, (curAngle + 90f) * Mathf.Rad2Deg);
             //transform.LookAt(new Vector3(bossObj.transform.position.x, transform.position.y, transform.position.z));
         }
+    }
+
+    private void Update()
+    {
+        if (dead && Time.time > cullTime)
+            Destroy(gameObject);
+    }
+
+    public void DropAway()  // Boss defeated, through self away
+    {
+        //print(gameObject.name + " is dropping away.");
+        transform.parent = null;
+        Destroy(gameObject.GetComponent<BoxCollider2D>());  // So nothing is collided with on way down
+        Rigidbody2D rb = gameObject.AddComponent<Rigidbody2D>();
+        rb.gravityScale = 3f; // So they fall fast
+        dead = true;
+        cullTime = Time.time + 5f;
+        float forceSign = transform.position.x / (Mathf.Abs(transform.position.x)); // Detects if the object is on the left or right and hence where to be thrown. Should return 1 or -1
+        rb.AddForce(new Vector2(5f * forceSign, 8f), ForceMode2D.Impulse);
     }
 }

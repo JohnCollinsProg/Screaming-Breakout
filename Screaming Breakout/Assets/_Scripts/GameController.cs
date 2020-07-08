@@ -154,10 +154,15 @@ public class GameController : MonoBehaviour
         PlayLighScream();
     }
 
-    public void HitBoss()
+    public void HitBoss(Vector2 point)
     {
-        bossBehv.TakeDamage();
+        bossBehv.TakeDamage(point);
         // play a sound? Or maybe the boss should do this depending on its health. 
+    }
+
+    public void BossDead()
+    {
+
     }
 
     private void PlayVariableScream(float speed) 
