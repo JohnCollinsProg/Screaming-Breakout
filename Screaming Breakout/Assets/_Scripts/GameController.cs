@@ -134,7 +134,10 @@ public class GameController : MonoBehaviour
         BlockHealth blockHealth = blockObj.GetComponent<BlockHealth>(); // I don't like this, but I'm not sure how else to implement it. 
         blockHealth.TakeDamage();
         if (blockHealth.GetHealth() <= 0)
+        {
+            blockHealth.BlockDeath();
             Destroy(blockObj);
+        }
         remainingBlocks = GetRemainingBlocks();
         checkBlocksTime = Time.time + 0.01f;
         checkBlocks = true;

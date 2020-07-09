@@ -8,22 +8,27 @@ public class BlockHealth : MonoBehaviour
     private int currentHealth;
     public bool shrinker = false;
     private float shrinkFactor = 0.9f;
+    public GameObject deathFace;
+    private bool hurt = false;
+    public bool animated = false;
+    private Animator animator;
+    
 
     void Start()
     {
         currentHealth = maxHealth;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (animated)
+            animator = GetComponent<Animator>();
     }
 
     public void TakeDamage()
     {
         currentHealth--;
-        // Change image, or shade more red or something. 
+        if (animated)
+        {
+            animator.SetBool("Hurt", true);
+        }
+
         if (shrinker)
         {
             transform.localScale *= shrinkFactor;
@@ -33,5 +38,11 @@ public class BlockHealth : MonoBehaviour
     public int GetHealth()
     {
         return currentHealth;
+    }
+
+    public void BlockDeath()
+    {
+        if (deathFace != null)
+            Instantiate(deathFace, transform.position, Quaternion.identity);
     }
 }
