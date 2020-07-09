@@ -58,10 +58,12 @@ public class BallController : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, 0f, rotation);
         }
 
-        if (mode == 1)  // Ball is released and bouncing around normally
+        if (mode == 1 || mode == 2)  // Ball is released and bouncing around normally
         {
             rotation += rotationRate * rotationDirection * Time.deltaTime;
             transform.rotation = Quaternion.Euler(0f, 0f, rotation);
+            if (mode == 1)
+                mode = 2;
         }
 
         if (Input.GetKeyDown(KeyCode.G))    // To be pressed when the ball gets stuck. 
@@ -112,7 +114,9 @@ public class BallController : MonoBehaviour
             checkSpeedLimit();
 
             rotationDirection *= -1;
-            gCont.HitPaddle();
+            if (mode == 2) {
+                gCont.HitPaddle();
+            }
         }
 
         if (collision.gameObject.layer == 10)   // Ball hit a block, tell game controller to score
