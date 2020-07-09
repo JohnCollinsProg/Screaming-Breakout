@@ -53,6 +53,9 @@ public class GameController : MonoBehaviour
     private StaticData staticData;
     public GameObject dataObjPrefab;
 
+    public GameObject uiTextObj;
+    private UIController uiTextCont;
+
     void Start()
     {
         lives = startingLives;
@@ -65,6 +68,8 @@ public class GameController : MonoBehaviour
         ballCont = ballObj.GetComponent<BallController>();
         paddleCont = paddleObj.GetComponent<PaddleControllerV1>();
         bossBehv = bossObj.GetComponent<BossBehaviour>();
+        uiTextCont = uiTextObj.GetComponent<UIController>();
+        uiTextCont.SetLives(startingLives);
 
         stageChangeVector = new Vector3(0f, stageDistance, 0f);
 
@@ -207,6 +212,9 @@ public class GameController : MonoBehaviour
         if (deathSound != null)
             deathSound.Play();
         lives--;
+        if (lives > 0) {
+            uiTextCont.SetLives(lives);
+        }
     }
 
     public void HitBlock(GameObject blockObj)
