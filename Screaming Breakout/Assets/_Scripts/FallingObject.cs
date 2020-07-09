@@ -15,9 +15,14 @@ public class FallingObject : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    public bool animated = false;
+    private Animator animator;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        if (animated)
+            animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -44,6 +49,8 @@ public class FallingObject : MonoBehaviour
             //rb.gravityScale = gravityScale;
             releaseTime = Time.time + Time.deltaTime * 2;
             released = true;
+            if (animated)
+                animator.SetBool("Falling", true);
         }
         if (collision.gameObject.tag == "Hazzard")  // If the falling object hits the red blocker below the paddle. This might need to be changed later if we change how that works but is fine until then. 
         {

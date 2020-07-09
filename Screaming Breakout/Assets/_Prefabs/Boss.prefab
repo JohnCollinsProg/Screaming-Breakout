@@ -139,7 +139,7 @@ MonoBehaviour:
   shield2: {fileID: 4463603889172475501}
   fallingObj: {fileID: 5401272893002436969, guid: 5bd91668d215f9b44b468993df795de7,
     type: 3}
-  responsiveShield: {fileID: 6487660749070448881, guid: 93f374eaa03b80c41a79573754b9f1c6,
+  responsiveShield: {fileID: 3096550123713228466, guid: b9f2f20bb0822414ab4626761dfd4f8a,
     type: 3}
   lowerFallPosObj: {fileID: 2632871538076101369}
   upperFallPosObj: {fileID: 357244079730643662}
@@ -150,8 +150,8 @@ MonoBehaviour:
   attackPeriod: 5
   backgroundShade: {r: 0.4745098, g: 0.47058824, b: 0.47058824, a: 1}
   backgroundScale: 1
-  backgroundUpwardTime: 5.4
-  backgroundDescentTime: 3.6
+  backgroundUpwardTime: 6
+  backgroundDescentTime: 4.3
   backgroundSpawn: {fileID: 0}
   highestPoint: {fileID: 0}
 --- !u!58 &2023309989720464249
