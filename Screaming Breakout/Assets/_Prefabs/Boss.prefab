@@ -143,9 +143,17 @@ MonoBehaviour:
     type: 3}
   lowerFallPosObj: {fileID: 2632871538076101369}
   upperFallPosObj: {fileID: 357244079730643662}
-  dyingObj: {fileID: 2421971353294076095}
-  fallingObjectRange: 4.2
+  dyingObj: {fileID: 0}
+  normalPos: {x: 0, y: 2.2, z: 0}
+  normalScale: 2
+  fallingObjectRange: 4
   attackPeriod: 5
+  backgroundShade: {r: 0.4745098, g: 0.47058824, b: 0.47058824, a: 1}
+  backgroundScale: 1
+  backgroundUpwardTime: 5.4
+  backgroundDescentTime: 3.6
+  backgroundSpawn: {fileID: 0}
+  highestPoint: {fileID: 0}
 --- !u!58 &2023309989720464249
 CircleCollider2D:
   m_ObjectHideFlags: 0

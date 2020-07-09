@@ -7,7 +7,7 @@ public class BossBehaviour : MonoBehaviour
     public int maxHealth;
     private int health;
     private bool alive = true;
-    //  Stage 0: swinging shields,  stage 1: spawning falling objects,  stage 2: spawning reactive shields, -1 = dying dramatically, -2 = dead and falling
+    //  Stage 0: swinging shields,  stage 1: spawning falling objects,  stage 2: spawning reactive shields, -1 = dying dramatically, -2 = dead and falling, -3 = spawning in background, -4 = descending into fight
     private int stage = 0;
     public int stage1Threshold, stage2Threshold;
     public GameObject shield1, shield2;
@@ -15,7 +15,8 @@ public class BossBehaviour : MonoBehaviour
     public GameObject fallingObj, responsiveShield, lowerFallPosObj, upperFallPosObj;
     private Vector3 lowerFallPos, upperFallPos;
     public GameObject dyingObj;
-    private Vector3 normalPos;
+    public Vector3 normalPos;
+    public float normalScale = 2f;
     private GameController gCont;
     public float fallingObjectRange;
     public float attackPeriod;
@@ -27,6 +28,19 @@ public class BossBehaviour : MonoBehaviour
     private float deathTime;
     private float deathDuration = 3f;
     private float deathComplete;
+    private CircleCollider2D collider;
+
+    private Color standardColor = Color.white;
+    public Color backgroundShade;
+    private SpriteRenderer sr;
+    public float backgroundScale;
+    public float backgroundUpwardTime = 5.4f;
+    private float spawnTime;
+    private float backgroundUpwardComplete;
+    public float backgroundDescentTime = 3.6f;
+    private float descentStartTime;
+    private float descentCompleteTime;
+    public GameObject backgroundSpawn, highestPoint;
 
     void Start()
     {
@@ -35,8 +49,10 @@ public class BossBehaviour : MonoBehaviour
         upperFallPos = upperFallPosObj.transform.position;
         shieldBehaviour1 = shield1.GetComponent<ShieldBehaviour>();
         shieldBehaviour2 = shield2.GetComponent<ShieldBehaviour>();
-        normalPos = transform.position;
+        collider = gameObject.GetComponent<CircleCollider2D>();
+        //normalPos = transform.position;
         gCont = GameObject.Find("Game Controller").GetComponent<GameController>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -47,7 +63,60 @@ public class BossBehaviour : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Y))
             health = 1;
+        if (Input.GetKeyDown(KeyCode.U))
+            SpawnBoss();
 
+        if (stage == -3)
+        {
+            float progress = (Time.time - spawnTime) / (backgroundUpwardComplete - spawnTime);
+            
+            if (progress >= 1)  // Reached the top point
+            {
+                stage = -4;
+                transform.position = highestPoint.transform.position;
+                transform.localScale = new Vector3(normalScale, normalScale, 1f);
+                sr.color = standardColor;
+                sr.sortingLayerName = "Default";
+                collider.enabled = true;
+
+                descentStartTime = Time.time;
+                descentCompleteTime = descentStartTime + backgroundDescentTime;
+
+                shield1.SetActive(true);
+                shield2.SetActive(true);
+                print("Boss reached top point");
+            }
+            else                // Travelling to top point, increasing in scale and colour
+            {
+                // Eased version
+                //transform.position = Vector3.Lerp(transform.position, highestPoint.transform.position, progress);
+                // Constant speed version
+                transform.position = Vector3.Lerp(backgroundSpawn.transform.position, highestPoint.transform.position, progress);
+
+                // Eased version
+                //float scale = Mathf.Lerp(transform.localScale.x, normalScale, progress);
+                // Constant speed version
+                float scale = Mathf.Lerp(backgroundScale, normalScale, progress);
+                transform.localScale = new Vector3(scale, scale, 1f);
+                Color curColor = Color.Lerp(sr.color, standardColor, progress);
+            }
+        }
+        if (stage == -4)
+        {
+            float progress = (Time.time - descentStartTime) / (descentCompleteTime - descentStartTime);
+
+            if (progress >= 1)
+            {
+                stage = 0;
+                transform.position = normalPos;
+                print("Boss reached normal position, beginning fight");
+            }
+            else
+            {
+                transform.position = Vector3.Lerp(transform.position, normalPos, progress);
+                
+            }
+        }
         if (stage == -1)
         {
             float progress = (Time.time - deathTime) / (deathComplete - deathTime);
@@ -86,18 +155,21 @@ public class BossBehaviour : MonoBehaviour
                 if (Time.time >= nextAttack)    // Drop an object
                 {
                     nextAttack += attackPeriod;
-                    int spawnArea = Random.Range(0, 2); // 0 = bottom, 1 = top left, 2 = top right
+                    int spawnArea = Random.Range(0, 3); // 0 = bottom, 1 = top left, 2 = top right
                     Vector3 spawnPos = new Vector3(Random.Range(-fallingObjectRange, fallingObjectRange), lowerFallPos.y, lowerFallPos.z);// Left here for safety, should always be overwritten. 
                     switch (spawnArea)
                     {
                         case 0:
                             spawnPos = new Vector3(Random.Range(-fallingObjectRange, fallingObjectRange), lowerFallPos.y, lowerFallPos.z);
+                            print("Spawning falling object at: 0 - Bottom");
                             break;
                         case 1:
                             spawnPos = new Vector3(-upperFallPos.x, upperFallPos.y + Random.Range(-fallingObjectRange / 2, fallingObjectRange / 2), upperFallPos.z);
+                            print("Spawning falling object at: 1 - Top left");
                             break;
                         case 2:
                             spawnPos = new Vector3(upperFallPos.x, upperFallPos.y + Random.Range(-fallingObjectRange / 2, fallingObjectRange / 2), upperFallPos.z);
+                            print("Spawning falling object at: 2 - Top right");
                             break;
                     }
                     //Vector3 spawnPos = new Vector3(Random.Range(-fallingObjectRange, fallingObjectRange), fallPos.y, fallPos.z);
@@ -159,5 +231,21 @@ public class BossBehaviour : MonoBehaviour
     public int GetHealth()
     {
         return health;
+    }
+
+    public void SpawnBoss()
+    {
+        transform.position = backgroundSpawn.transform.position;
+        transform.localScale = new Vector3(backgroundScale, backgroundScale, backgroundScale);
+        sr.color = backgroundShade;
+        sr.sortingLayerName = "Front Background";
+        collider.enabled = false; // tuirn off
+        stage = -3;
+
+        spawnTime = Time.time;
+        backgroundUpwardComplete = spawnTime + backgroundUpwardTime;
+        shield1.SetActive(false);
+        shield2.SetActive(false);
+        print("Spawning boss at Time: " + Time.time + ",    position: " + transform.position);
     }
 }
