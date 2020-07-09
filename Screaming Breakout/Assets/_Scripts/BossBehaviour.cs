@@ -43,6 +43,8 @@ public class BossBehaviour : MonoBehaviour
     public GameObject backgroundSpawn, highestPoint;
     public AudioSource bossMusic;
     public Animator animator;
+    public AudioSource[] hurtSounds;
+    public AudioSource deathSound;
 
     void Start()
     {
@@ -217,6 +219,9 @@ public class BossBehaviour : MonoBehaviour
                 shieldSpawnTime = Time.time + shieldDelay;
             }
             animator.SetTrigger("Hurt");
+            AudioSource toPlay = hurtSounds[Random.Range(0, hurtSounds.Length)];
+            if (toPlay != null)
+                toPlay.Play();
         }
         else if (alive) // Damage will be fatal
         {
@@ -230,6 +235,8 @@ public class BossBehaviour : MonoBehaviour
             shieldBehaviour1.DropAway();
             shieldBehaviour2.DropAway();
             animator.SetTrigger("Dead");
+            if (deathSound != null)
+                deathSound.Play();
         }
     }
 

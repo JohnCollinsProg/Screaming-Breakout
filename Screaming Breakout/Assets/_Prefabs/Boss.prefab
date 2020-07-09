@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 357244079730643662}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.32, y: 0.69, z: 0}
+  m_LocalPosition: {x: 1.32, y: 0.61, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 8363858508633207296}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 4910640770591927071}
   - component: {fileID: 4178225177500899684}
   - component: {fileID: 2023309989720464249}
-  - component: {fileID: 172231196269544744}
+  - component: {fileID: 1640082206}
   m_Layer: 12
   m_Name: Boss
   m_TagString: Untagged
@@ -115,7 +115,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 2.48, y: 2.38}
+  m_Size: {x: 2.44, y: 2.34}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -144,7 +144,8 @@ MonoBehaviour:
     type: 3}
   lowerFallPosObj: {fileID: 2632871538076101369}
   upperFallPosObj: {fileID: 357244079730643662}
-  dyingObj: {fileID: 0}
+  dyingObj: {fileID: 1311298421490610538, guid: 68191d551b9313d46a3a3460a2b3297b,
+    type: 3}
   normalPos: {x: 0, y: 2.2, z: 0}
   normalScale: 2
   fallingObjectRange: 4
@@ -156,7 +157,12 @@ MonoBehaviour:
   backgroundSpawn: {fileID: 0}
   highestPoint: {fileID: 0}
   bossMusic: {fileID: 0}
-  animator: {fileID: 172231196269544744}
+  animator: {fileID: 1640082206}
+  hurtSounds:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  deathSound: {fileID: 0}
 --- !u!58 &2023309989720464249
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -173,7 +179,7 @@ CircleCollider2D:
   m_Offset: {x: -0.07433939, y: -0.0057184696}
   serializedVersion: 2
   m_Radius: 1.1770682
---- !u!95 &172231196269544744
+--- !u!95 &1640082206
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -205,7 +211,7 @@ GameObject:
   - component: {fileID: 2790099228261839456}
   - component: {fileID: 7712219898622571111}
   - component: {fileID: 1920470951164752737}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Shield (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -311,13 +317,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a98a193704308d24f991848f2f227b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossObj: {fileID: 0}
-  rotationSpeed: 0
+  bossObj: {fileID: 488532569459107952}
+  rotationSpeed: 24
   upperLimit: {fileID: 0}
   lowerLimit: {fileID: 0}
   minAngle: 28
   maxAngle: 80
-  direction: 0
+  direction: -1
 --- !u!1 &2421971353294076095
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,7 +643,7 @@ PrefabInstance:
     - target: {fileID: 4981088456763990024, guid: d696156af317f5f4e8b83c5ee87a11f2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.305
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4981088456763990024, guid: d696156af317f5f4e8b83c5ee87a11f2,
         type: 3}
@@ -698,6 +704,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 0.35000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 5189296641237847923, guid: d696156af317f5f4e8b83c5ee87a11f2,
+        type: 3}
+      propertyPath: bossObj
+      value: 
+      objectReference: {fileID: 488532569459107952}
+    - target: {fileID: 5189296641237847923, guid: d696156af317f5f4e8b83c5ee87a11f2,
+        type: 3}
+      propertyPath: rotationSpeed
+      value: 24
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d696156af317f5f4e8b83c5ee87a11f2, type: 3}
