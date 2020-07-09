@@ -20,15 +20,23 @@ public class BallController : MonoBehaviour
     private int rotationDirection = -1;
 
     private Rigidbody2D rb;
+    private GameObject gContObj;
     private GameController gCont;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        gCont = GameObject.Find("Game Controller").GetComponent<GameController>();
+        gContObj = GameObject.Find("Game Controller");
+        if (gContObj != null)
+            gCont = gContObj.GetComponent<GameController>();
         defaultPos = transform.position;
         basePos = new Vector3(0f, defaultPos.y, defaultPos.z);
         mode = 0;
+    }
+
+    public void StartModeOne()
+    {
+        mode = 1;
     }
 
     // Update is called once per frame
@@ -44,7 +52,8 @@ public class BallController : MonoBehaviour
         }
         if (mode == 0)  // Initially the ball is attached to the paddle, until left mouse is clicked. 
         {
-            transform.position = basePos + new Vector3(paddle.transform.position.x, 0f, 0f);    // I am using this instead of parenting because it is easier to detach and preserves the scaling. 
+            if (paddle != null) 
+                transform.position = basePos + new Vector3(paddle.transform.position.x, 0f, 0f);    // I am using this instead of parenting because it is easier to detach and preserves the scaling. 
             rotation += rotationRate * rotationDirection * 1.2f * Time.deltaTime;
             transform.rotation = Quaternion.Euler(0f, 0f, rotation);
         }
@@ -113,7 +122,8 @@ public class BallController : MonoBehaviour
 
         if (collision.gameObject.layer == 9)    // Ball hit the walls/ roof
         {
-            gCont.HitWall(collision.gameObject.name);
+            if (gCont != null)
+                gCont.HitWall(collision.gameObject.name);
         }
 
         if (collision.gameObject.layer == 12)   // Ball hit the boss

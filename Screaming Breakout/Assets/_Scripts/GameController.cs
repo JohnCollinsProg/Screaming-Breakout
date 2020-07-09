@@ -100,7 +100,7 @@ public class GameController : MonoBehaviour
         if (remainingBlocks == 0)   // All the blocks have been destroyed, progress onto the next stage of the game. 
         {
             
-            if (stage + 1 < totalStages)    // Progress to the next stage
+            if (stage < totalStages)    // Progress to the next stage
             {
                 stage++;
                 remainingBlocks = GetRemainingBlocks();
@@ -129,12 +129,12 @@ public class GameController : MonoBehaviour
             float newYPos = Mathf.Clamp(Mathf.Lerp(Camera.main.transform.position.y, ballObj.transform.position.y, 0.6f * Time.deltaTime), Camera.main.transform.position.y, camMax);
             Camera.main.transform.position = new Vector3(0f, newYPos, -10f);
         }
-        if (roofOpen && Camera.main.transform.position.y + 0.05f >= camMax)
+        if (roofOpen && Camera.main.transform.position.y + 0.05f >= camMax && !nextSceneTimer)
         {
             nextSceneTimer = true;
             nextSceneTime = Time.time + postGameTime;
             staticData.AllowBallOnTitle();
-            
+            print("Beginning transition to return to title");
         }
         if (nextSceneTimer && Time.time >= nextSceneTime)
         {
@@ -142,7 +142,8 @@ public class GameController : MonoBehaviour
 
             // load main menu with the ball
             staticData.AllowBallOnTitle();
-            StartCoroutine(LoadYourAsyncScene());
+            SceneManager.LoadScene("TitleScene");
+            //StartCoroutine(LoadYourAsyncScene());
         }
 
         /*if (lives <= 0)
@@ -159,7 +160,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    IEnumerator LoadYourAsyncScene()
+    /*IEnumerator LoadYourAsyncScene()
     {
         // The Application loads the Scene in the background as the current Scene runs.
         // This is particularly good for creating loading screens.
@@ -173,7 +174,7 @@ public class GameController : MonoBehaviour
         {
             yield return null;
         }
-    }
+    }*/
 
     private int GetRemainingBlocks()
     {

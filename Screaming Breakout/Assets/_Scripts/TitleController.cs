@@ -28,7 +28,8 @@ public class TitleController : MonoBehaviour
 
             if (staticData.GetBallOnTitle())
             {
-                ballInstance = Instantiate(ballObj, Vector3.zero, Quaternion.identity);
+                ballInstance = Instantiate(ballObj, new Vector3(0,0,-1f), Quaternion.identity);
+                ballInstance.GetComponent<BallController>().StartModeOne();
                 ballRb = ballInstance.GetComponent<Rigidbody2D>();
                 ballRb.velocity = initVelo;
             }

@@ -128,7 +128,7 @@ public class BossBehaviour : MonoBehaviour
             //transform.position = Vector3.Lerp(transform.position, dyingObj.transform.position, progress);
             // Alternatively-    transform.position = Vector3.Lerp( ""Position when started dying, or normal position"" , dyingObj.transform.position, progress);
             transform.position = Vector3.Lerp(normalPos, dyingObj.transform.position, progress);
-            print("Boss transform: " + transform.position + ",    at Death progress: " + progress);
+            //print("Boss transform: " + transform.position + ",    at Death progress: " + progress);
             if (transform.position.x < dyingObj.transform.position.x)
             {
                 print("Boss is " + (transform.position.x - dyingObj.transform.position.x) + " units too far");
