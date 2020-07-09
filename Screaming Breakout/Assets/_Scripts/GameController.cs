@@ -47,7 +47,7 @@ public class GameController : MonoBehaviour
     {
         lives = startingLives;
         destructables = GameObject.Find("Destructables");
-        totalStages = destructables.transform.childCount;
+        totalStages = destructables.transform.childCount - 1; // -1 so that it is in index form. 
         remainingBlocks = GetRemainingBlocks();
         print("init: get remainingBlocks: " + remainingBlocks);
         totalBlocks = remainingBlocks;
@@ -69,7 +69,7 @@ public class GameController : MonoBehaviour
             remainingBlocks = GetRemainingBlocks();
             checkBlocks = false;
         }
-        if (stage == 2)
+        if (stage == totalStages)
         {
             //remainingBlocks = -1;
             stage++;
@@ -156,9 +156,12 @@ public class GameController : MonoBehaviour
             blockHealth.BlockDeath();
             Destroy(blockObj);
         }
-        remainingBlocks = GetRemainingBlocks();
-        checkBlocksTime = Time.time + 0.01f;
-        checkBlocks = true;
+        if (stage < totalStages)
+        {
+            remainingBlocks = GetRemainingBlocks();
+            checkBlocksTime = Time.time + 0.01f;
+            checkBlocks = true;
+        }
 
         // Play a blood splatter or puff of smoke.
         PlayLighScream();

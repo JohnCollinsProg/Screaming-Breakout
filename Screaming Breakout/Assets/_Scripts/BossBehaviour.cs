@@ -163,15 +163,15 @@ public class BossBehaviour : MonoBehaviour
                     {
                         case 0:
                             spawnPos = new Vector3(Random.Range(-fallingObjectRange, fallingObjectRange), lowerFallPos.y, lowerFallPos.z);
-                            print("Spawning falling object at: 0 - Bottom");
+                            //print("Spawning falling object at: 0 - Bottom");
                             break;
                         case 1:
                             spawnPos = new Vector3(-upperFallPos.x, upperFallPos.y + Random.Range(-fallingObjectRange / 2, fallingObjectRange / 2), upperFallPos.z);
-                            print("Spawning falling object at: 1 - Top left");
+                            //print("Spawning falling object at: 1 - Top left");
                             break;
                         case 2:
                             spawnPos = new Vector3(upperFallPos.x, upperFallPos.y + Random.Range(-fallingObjectRange / 2, fallingObjectRange / 2), upperFallPos.z);
-                            print("Spawning falling object at: 2 - Top right");
+                            //print("Spawning falling object at: 2 - Top right");
                             break;
                     }
                     //Vector3 spawnPos = new Vector3(Random.Range(-fallingObjectRange, fallingObjectRange), fallPos.y, fallPos.z);
