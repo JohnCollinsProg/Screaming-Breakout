@@ -16,6 +16,7 @@ public class PaddleControllerV1 : MonoBehaviour
     public float edgeClamp;
     public Animator animator;
     public float impairTime;
+    private bool dead = false;
     
     void Start()
     {
@@ -55,6 +56,12 @@ public class PaddleControllerV1 : MonoBehaviour
             animator.SetBool("Impaired", false);
         }
 
+        if (dead)
+        {
+
+        }
+        if (Input.GetKeyDown(KeyCode.P))
+            SetDead();
         
     }
 
@@ -80,5 +87,13 @@ public class PaddleControllerV1 : MonoBehaviour
         unimpairedTime = Time.time + impairTime;
         animator.SetBool("Impaired", true);
         print("You have been impaired");
+    }
+
+    public void SetDead()
+    {
+        dead = true;
+        inputMode = -1;
+        gameObject.AddComponent<Rigidbody2D>();
+        animator.SetBool("Dead", true);
     }
 }

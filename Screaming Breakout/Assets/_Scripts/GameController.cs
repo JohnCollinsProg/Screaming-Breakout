@@ -19,6 +19,8 @@ public class GameController : MonoBehaviour
     public int startingLives;
     private int lives;
     public float lightThreshold, mediumThreshold, heavyThreshold;
+    private float gameoverTime;
+    private float deathPeriod = 5f;
 
     public AudioSource[] screamsLight;
     public AudioSource[] screamsMedium;
@@ -153,12 +155,16 @@ public class GameController : MonoBehaviour
             //StartCoroutine(LoadYourAsyncScene());
         }
 
-        if (lives <= 0 && useLives && !bossDead)
+        if (lives <= 0 && useLives && !bossDead && gameoverTime == 0)
         {
             print("You're out of lives you big sodding idiot!!");
-            SceneManager.LoadScene("GameOverScene");
+            paddleCont.SetDead();
+            gameoverTime = Time.time + deathPeriod;
+            //SceneManager.LoadScene("GameOverScene");
         }
-        
+        if (lives <= 0 && useLives && !bossDead && Time.time >= gameoverTime)
+            SceneManager.LoadScene("GameOverScene");
+
         if (Input.GetKey(KeyCode.G))
         {
             //print("BallObj has this many children: " + ballObj.transform.childCount);
