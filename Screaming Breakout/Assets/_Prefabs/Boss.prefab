@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 4910640770591927071}
   - component: {fileID: 4178225177500899684}
   - component: {fileID: 2023309989720464249}
+  - component: {fileID: 172231196269544744}
   m_Layer: 12
   m_Name: Boss
   m_TagString: Untagged
@@ -109,12 +110,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1d0388e447073f4488b7814d744a7f1c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 72867861312453042ae94c4036b0a9b6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 2.56, y: 2.56}
+  m_DrawMode: 1
+  m_Size: {x: 2.48, y: 2.38}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -154,6 +155,8 @@ MonoBehaviour:
   backgroundDescentTime: 4.3
   backgroundSpawn: {fileID: 0}
   highestPoint: {fileID: 0}
+  bossMusic: {fileID: 0}
+  animator: {fileID: 172231196269544744}
 --- !u!58 &2023309989720464249
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -170,6 +173,25 @@ CircleCollider2D:
   m_Offset: {x: -0.07433939, y: -0.0057184696}
   serializedVersion: 2
   m_Radius: 1.1770682
+--- !u!95 &172231196269544744
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488532569459107952}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6044e2df73f107d4792c686f11c5b8c9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2160294159198464783
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,6 +390,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shield R
       objectReference: {fileID: 0}
+    - target: {fileID: 2860682446603633471, guid: 29ce2b3ddd9533345ba1aead3a64bccd,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 893f08fcddb0cf648909091119899f58,
+        type: 3}
     - target: {fileID: 4981088456763990024, guid: 29ce2b3ddd9533345ba1aead3a64bccd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -473,6 +501,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shield L
+      objectReference: {fileID: 0}
+    - target: {fileID: 2860682446603633471, guid: 29ce2b3ddd9533345ba1aead3a64bccd,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 893f08fcddb0cf648909091119899f58,
+        type: 3}
+    - target: {fileID: 2860682446603633471, guid: 29ce2b3ddd9533345ba1aead3a64bccd,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4981088456763990024, guid: 29ce2b3ddd9533345ba1aead3a64bccd,
         type: 3}
