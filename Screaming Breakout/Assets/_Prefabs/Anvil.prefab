@@ -146,6 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallOnHit: 1
   gravityScale: 2
+  slowAmount: 0.007
   bounceForce: 20
   animated: 1
 --- !u!114 &8254325738537077467

@@ -10,6 +10,7 @@ public class PaddleControllerV1 : MonoBehaviour
     // 0 = Mouse
     private int inputMode = 0;
     private bool impaired = false;
+    private float slowAmount;
     private float unimpairedTime;
 
     public float edgeClamp;
@@ -40,7 +41,7 @@ public class PaddleControllerV1 : MonoBehaviour
             {
                 Vector3 mousePos = Input.mousePosition;
                 mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-                float newXPos = Mathf.Lerp(transform.position.x, mousePos.x, 0.005f);
+                float newXPos = Mathf.Lerp(transform.position.x, mousePos.x, slowAmount);//0.005f
                 transform.position = basePos + new Vector3(Mathf.Clamp(newXPos, -edgeClamp, edgeClamp), 0f, 0f);
                 //print("Mouse X: " + mousePos.x + ",    newXPos: " + newXPos + ",    transform.position.x: " + transform.position.x);
             }
@@ -60,12 +61,17 @@ public class PaddleControllerV1 : MonoBehaviour
     // Also I cant figure out how to offset the sprite render, im manually offsetting each sprite atm but this is gonna be a pain
     public void PlayHurtAnimation()
     {
+<<<<<<< Updated upstream
         animator.SetTrigger("Hurt");
+=======
+        animator.SetTrigger("Hurt"); 
+>>>>>>> Stashed changes
     }
 
-    public void TakeImpairingDamage()
+    public void TakeImpairingDamage(float slowAmount)
     {
         impaired = true;
+        this.slowAmount = slowAmount;
         unimpairedTime = Time.time + impairTime;
         animator.SetBool("Impaired", true);
         print("You have been impaired");
