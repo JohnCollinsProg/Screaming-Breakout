@@ -229,6 +229,7 @@ public class BossBehaviour : MonoBehaviour
             deathComplete = Time.time + deathDuration;
             shieldBehaviour1.DropAway();
             shieldBehaviour2.DropAway();
+            animator.SetTrigger("Dead");
         }
     }
 
