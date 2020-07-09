@@ -61,11 +61,7 @@ public class PaddleControllerV1 : MonoBehaviour
     // Also I cant figure out how to offset the sprite render, im manually offsetting each sprite atm but this is gonna be a pain
     public void PlayHurtAnimation()
     {
-<<<<<<< Updated upstream
         animator.SetTrigger("Hurt");
-=======
-        animator.SetTrigger("Hurt"); 
->>>>>>> Stashed changes
     }
 
     public void TakeImpairingDamage(float slowAmount)
