@@ -147,7 +147,7 @@ public class GameController : MonoBehaviour
             //StartCoroutine(LoadYourAsyncScene());
         }
 
-        if (lives <= 0 && useLives)
+        if (lives <= 0 && useLives && !bossDead)
         {
             print("You're out of lives you big sodding idiot!!");
             SceneManager.LoadScene("GameOverScene");

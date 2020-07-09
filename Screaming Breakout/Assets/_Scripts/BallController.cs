@@ -55,7 +55,7 @@ public class BallController : MonoBehaviour
         if (mode == 0)  // Initially the ball is attached to the paddle, until left mouse is clicked. 
         {
             if (paddle != null) 
-                transform.position = basePos + new Vector3(paddle.transform.position.x, 0f, 0f);    // I am using this instead of parenting because it is easier to detach and preserves the scaling. 
+                transform.position = basePos + new Vector3(paddle.transform.position.x, Camera.main.transform.position.y, 0f);    // I am using this instead of parenting because it is easier to detach and preserves the scaling. 
             rotation += rotationRate * rotationDirection * 1.2f * Time.deltaTime;
             transform.rotation = Quaternion.Euler(0f, 0f, rotation);
         }
