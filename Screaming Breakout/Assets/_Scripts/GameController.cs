@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -47,6 +48,10 @@ public class GameController : MonoBehaviour
     private float nextSceneTime;
     private bool nextSceneTimer = false;
 
+    private GameObject dataObj;
+    private StaticData staticData;
+    public GameObject dataObjPrefab;
+
     void Start()
     {
         lives = startingLives;
@@ -63,6 +68,19 @@ public class GameController : MonoBehaviour
         stageChangeVector = new Vector3(0f, stageDistance, 0f);
 
         roofBreaker = GameObject.Find("Exploding Roof").GetComponent<RoofBreaker>();
+
+        dataObj = GameObject.Find("Data");
+        if (dataObj != null)
+        {
+            staticData = dataObj.GetComponent<StaticData>();
+            print("Found staticData, ballOnTitle: " + staticData.GetBallOnTitle());
+        }
+        else
+        {
+            print("Could not find static data. Making a new one.");
+            dataObj = Instantiate(dataObjPrefab, Vector3.zero, Quaternion.identity);
+            staticData = dataObj.GetComponent<StaticData>();
+        }
     }
 
     // Update is called once per frame
@@ -115,11 +133,16 @@ public class GameController : MonoBehaviour
         {
             nextSceneTimer = true;
             nextSceneTime = Time.time + postGameTime;
+            staticData.AllowBallOnTitle();
+            
         }
         if (nextSceneTimer && Time.time >= nextSceneTime)
         {
             print("Post game over, returning to title");
+
             // load main menu with the ball
+            staticData.AllowBallOnTitle();
+            StartCoroutine(LoadYourAsyncScene());
         }
 
         /*if (lives <= 0)
@@ -133,6 +156,22 @@ public class GameController : MonoBehaviour
             print("Stage: " + stage);
             remainingBlocks = GetRemainingBlocks();
             print("Remainging blocks: " + remainingBlocks + ",    stage: " + stage + ",    totalStages: " + totalStages);
+        }
+    }
+
+    IEnumerator LoadYourAsyncScene()
+    {
+        // The Application loads the Scene in the background as the current Scene runs.
+        // This is particularly good for creating loading screens.
+        // You could also load the Scene by using sceneBuildIndex. In this case Scene2 has
+        // a sceneBuildIndex of 1 as shown in Build Settings.
+
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("TitleScene");
+
+        // Wait until the asynchronous scene fully loads
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
         }
     }
 
