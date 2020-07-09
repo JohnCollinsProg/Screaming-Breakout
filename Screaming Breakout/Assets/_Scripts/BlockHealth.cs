@@ -26,7 +26,6 @@ public class BlockHealth : MonoBehaviour
         currentHealth--;
         if (animated)
         {
-            Debug.Log("HHIHI");
             animator.SetTrigger("Hurt");
         }
 
