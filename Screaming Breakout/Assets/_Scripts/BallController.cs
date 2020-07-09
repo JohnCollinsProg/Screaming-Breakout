@@ -60,6 +60,10 @@ public class BallController : MonoBehaviour
             mode = 0;
             gCont.HitHazzard();
         }
+        if ((Input.GetMouseButtonDown(0) && Input.GetMouseButtonDown(1)) || (Input.GetMouseButtonDown(0) && Input.GetMouseButton(1)) || (Input.GetMouseButton(0) && Input.GetMouseButtonDown(1))){
+            mode = 0;
+            gCont.HitHazzard();
+        }
     }
 
     private void FixedUpdate()

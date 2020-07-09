@@ -51,7 +51,8 @@ public class TitleController : MonoBehaviour
         }
         if ((stage == 0) && Input.GetMouseButtonDown(0) || (Time.time > displayClick))  // Display the click prompt
         {
-            stage = 1;
+            if (stage == 0)
+                stage = 1;
             print("Displaying prompt");
             clickPrompt.SetActive(true);
         }
