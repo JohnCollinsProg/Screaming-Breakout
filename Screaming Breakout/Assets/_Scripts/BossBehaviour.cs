@@ -42,6 +42,7 @@ public class BossBehaviour : MonoBehaviour
     private float descentCompleteTime;
     public GameObject backgroundSpawn, highestPoint;
     public AudioSource bossMusic;
+    public Animator animator;
 
     void Start()
     {
@@ -215,6 +216,7 @@ public class BossBehaviour : MonoBehaviour
                 shieldSpawning = true;
                 shieldSpawnTime = Time.time + shieldDelay;
             }
+            animator.SetTrigger("Hurt");
         }
         else if (alive) // Damage will be fatal
         {
