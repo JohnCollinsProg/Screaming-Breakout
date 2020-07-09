@@ -45,6 +45,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballObj: {fileID: 0}
   paddleObj: {fileID: 0}
+  paddleCont: {fileID: 0}
+  bossObj: {fileID: 0}
   startingLives: 5
   lightThreshold: 5
   mediumThreshold: 8
@@ -61,3 +63,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  deathSound: {fileID: 0}
+  postGameTime: 10

@@ -35,14 +35,14 @@ public class PaddleControllerV1 : MonoBehaviour
             {
                 Vector3 mousePos = Input.mousePosition;
                 mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-                transform.position = basePos + new Vector3(Mathf.Clamp(mousePos.x, -edgeClamp, edgeClamp), 0f, 0f);
+                transform.position = basePos + new Vector3(Mathf.Clamp(mousePos.x, -edgeClamp, edgeClamp), Camera.main.transform.position.y, 0f);
             }
             else          // Affected by a falling blocks impairment, slowing movement
             {
                 Vector3 mousePos = Input.mousePosition;
                 mousePos = Camera.main.ScreenToWorldPoint(mousePos);
                 float newXPos = Mathf.Lerp(transform.position.x, mousePos.x, slowAmount);//0.005f
-                transform.position = basePos + new Vector3(Mathf.Clamp(newXPos, -edgeClamp, edgeClamp), 0f, 0f);
+                transform.position = basePos + new Vector3(Mathf.Clamp(newXPos, -edgeClamp, edgeClamp), Camera.main.transform.position.y, 0f);
                 //print("Mouse X: " + mousePos.x + ",    newXPos: " + newXPos + ",    transform.position.x: " + transform.position.x);
             }
         }

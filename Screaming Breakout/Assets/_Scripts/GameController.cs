@@ -42,6 +42,10 @@ public class GameController : MonoBehaviour
 
     //private GameObject roofObj;
     private RoofBreaker roofBreaker;
+    private float camMax = 10.71f;
+    public float postGameTime;
+    private float nextSceneTime;
+    private bool nextSceneTimer = false;
 
     void Start()
     {
@@ -100,6 +104,22 @@ public class GameController : MonoBehaviour
                 destructables.transform.position = nextStagePos;
                 moveStage = false;
             }
+        }
+
+        if (roofOpen && ballObj.transform.position.y > Camera.main.transform.position.y)    // The camera is free and will pan upwards to follow the ball outwards
+        {
+            float newYPos = Mathf.Clamp(Mathf.Lerp(Camera.main.transform.position.y, ballObj.transform.position.y, 0.6f * Time.deltaTime), Camera.main.transform.position.y, camMax);
+            Camera.main.transform.position = new Vector3(0f, newYPos, -10f);
+        }
+        if (roofOpen && Camera.main.transform.position.y + 0.05f >= camMax)
+        {
+            nextSceneTimer = true;
+            nextSceneTime = Time.time + postGameTime;
+        }
+        if (nextSceneTimer && Time.time >= nextSceneTime)
+        {
+            print("Post game over, returning to title");
+            // load main menu with the ball
         }
 
         /*if (lives <= 0)
