@@ -41,6 +41,7 @@ public class BossBehaviour : MonoBehaviour
     private float descentStartTime;
     private float descentCompleteTime;
     public GameObject backgroundSpawn, highestPoint;
+    public AudioSource bossMusic;
 
     void Start()
     {
@@ -248,5 +249,9 @@ public class BossBehaviour : MonoBehaviour
         shield1.SetActive(false);
         shield2.SetActive(false);
         print("Spawning boss at Time: " + Time.time + ",    position: " + transform.position);
+        if (bossMusic != null) {
+            bossMusic.loop = true;
+            bossMusic.Play();
+        }
     }
 }

@@ -1099,6 +1099,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7660610085566520060, guid: 73d22fa4b6d2b3c45b4879bb1a3c9d46,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7660610085566520060, guid: 73d22fa4b6d2b3c45b4879bb1a3c9d46,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73d22fa4b6d2b3c45b4879bb1a3c9d46, type: 3}
 --- !u!1 &1640082205 stripped
@@ -1106,12 +1116,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 488532569459107952, guid: 4912d069bcb5fdb489b30880718e056e,
     type: 3}
   m_PrefabInstance: {fileID: 668834213480525880}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1784495249 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1311298420191735114, guid: 68191d551b9313d46a3a3460a2b3297b,
-    type: 3}
-  m_PrefabInstance: {fileID: 1311298420833653211}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1882695978 stripped
 GameObject:
@@ -1200,6 +1204,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1907490605 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7660610085566520060, guid: 73d22fa4b6d2b3c45b4879bb1a3c9d46,
+    type: 3}
+  m_PrefabInstance: {fileID: 1554318934}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1978696333 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4463603889172475501, guid: 4912d069bcb5fdb489b30880718e056e,
@@ -1473,7 +1483,8 @@ PrefabInstance:
         type: 3}
       propertyPath: dyingObj
       value: 
-      objectReference: {fileID: 1784495249}
+      objectReference: {fileID: 1311298421490610538, guid: 68191d551b9313d46a3a3460a2b3297b,
+        type: 3}
     - target: {fileID: 4178225177500899684, guid: 4912d069bcb5fdb489b30880718e056e,
         type: 3}
       propertyPath: backgroundSpawn
@@ -1484,6 +1495,11 @@ PrefabInstance:
       propertyPath: highestPoint
       value: 
       objectReference: {fileID: 1882695978}
+    - target: {fileID: 4178225177500899684, guid: 4912d069bcb5fdb489b30880718e056e,
+        type: 3}
+      propertyPath: bossMusic
+      value: 
+      objectReference: {fileID: 1907490605}
     - target: {fileID: 4910640770591927071, guid: 4912d069bcb5fdb489b30880718e056e,
         type: 3}
       propertyPath: m_Color.r
