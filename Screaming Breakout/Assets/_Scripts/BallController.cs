@@ -16,6 +16,7 @@ public class BallController : MonoBehaviour
     private Vector3 defaultPos;
     private Vector3 basePos;
     private Vector3 lastVelocity;
+    private float minSpeed;
     private float rotation;
     private int rotationDirection = -1;
 
@@ -49,6 +50,7 @@ public class BallController : MonoBehaviour
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             float xVelo = transform.position.x / 2f;
             rb.velocity = new Vector2(xVelo, baseSpeed);
+            minSpeed = baseSpeed;
         }
         if (mode == 0)  // Initially the ball is attached to the paddle, until left mouse is clicked. 
         {
@@ -64,6 +66,12 @@ public class BallController : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, 0f, rotation);
             if (mode == 1)
                 mode = 2;
+            if (rb.velocity.magnitude > minSpeed)
+                minSpeed = rb.velocity.magnitude;
+            if (rb.velocity.magnitude < minSpeed)
+            {
+                rb.velocity = rb.velocity.normalized * minSpeed;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.G))    // To be pressed when the ball gets stuck. 
