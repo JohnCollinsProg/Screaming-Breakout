@@ -107,9 +107,9 @@ public class BallController : MonoBehaviour
             gCont.HitBlock(collision.gameObject);
         }
 
-        if (collision.gameObject.layer == 9)
+        if (collision.gameObject.layer == 9)    // Ball hit the walls/ roof
         {
-            gCont.HitWall();
+            gCont.HitWall(collision.gameObject.name);
         }
 
         if (collision.gameObject.layer == 12)   // Ball hit the boss

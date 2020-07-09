@@ -11,6 +11,8 @@ public class GameController : MonoBehaviour
     private GameObject destructables;
     public GameObject bossObj;
     private BossBehaviour bossBehv;
+    private bool bossDead = false;
+    private bool roofOpen = false;
 
     public int startingLives;
     public float lightThreshold, mediumThreshold, heavyThreshold;
@@ -38,6 +40,9 @@ public class GameController : MonoBehaviour
     private Vector3 nextStagePos;
     private Vector3 stageChangeVector;
 
+    //private GameObject roofObj;
+    private RoofBreaker roofBreaker;
+
     void Start()
     {
         lives = startingLives;
@@ -52,6 +57,8 @@ public class GameController : MonoBehaviour
         bossBehv = bossObj.GetComponent<BossBehaviour>();
 
         stageChangeVector = new Vector3(0f, stageDistance, 0f);
+
+        roofBreaker = GameObject.Find("Exploding Roof").GetComponent<RoofBreaker>();
     }
 
     // Update is called once per frame
@@ -95,10 +102,10 @@ public class GameController : MonoBehaviour
             }
         }
 
-        if (lives <= 0)
+        /*if (lives <= 0)
         {
             print("You're out of lives you big sodding idiot!!");
-        }
+        }*/
         
         if (Input.GetKey(KeyCode.G))
         {
@@ -163,9 +170,16 @@ public class GameController : MonoBehaviour
         paddleCont.PlayHurtAnimation();
     }
 
-    public void HitWall()
+    public void HitWall(string name)
     {
         PlayLighScream();
+        if (name == "Roof" && bossDead)
+        {
+            // Break the roof open
+            roofBreaker.BreakOpen();
+            roofOpen = true;
+            Destroy(GameObject.Find("Roof"));
+        }
     }
 
     public void HitBoss(Vector2 point)
@@ -176,7 +190,7 @@ public class GameController : MonoBehaviour
 
     public void BossDead()
     {
-
+        bossDead = true;
     }
 
     private void PlayVariableScream(float speed) 
