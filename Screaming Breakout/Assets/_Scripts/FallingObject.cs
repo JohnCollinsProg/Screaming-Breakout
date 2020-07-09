@@ -18,6 +18,8 @@ public class FallingObject : MonoBehaviour
 
     public bool animated = false;
     private Animator animator;
+    public AudioSource hitPaddleSound;
+    public AudioSource hitBallSound;
 
     void Start()
     {
@@ -52,6 +54,8 @@ public class FallingObject : MonoBehaviour
             released = true;
             if (animated)
                 animator.SetBool("Falling", true);
+            if (hitBallSound != null)
+                hitBallSound.Play();
         }
         if (collision.gameObject.tag == "Hazzard")  // If the falling object hits the red blocker below the paddle. This might need to be changed later if we change how that works but is fine until then. 
         {
@@ -68,6 +72,8 @@ public class FallingObject : MonoBehaviour
             rb.AddForce((towardsAttractor * bounceForce), ForceMode2D.Impulse);
             dead = true;
             cullTime = Time.time + 5f;
+            if (hitPaddleSound != null)
+                hitPaddleSound.Play();
         }
     }
 }

@@ -278,6 +278,18 @@ AudioSource:
     type: 3}
   m_PrefabInstance: {fileID: 1554318934}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &486443722 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7654778164844616314, guid: 73d22fa4b6d2b3c45b4879bb1a3c9d46,
+    type: 3}
+  m_PrefabInstance: {fileID: 1554318934}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &491049574 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5821180331342009068, guid: 73d22fa4b6d2b3c45b4879bb1a3c9d46,
+    type: 3}
+  m_PrefabInstance: {fileID: 1554318934}
+  m_PrefabAsset: {fileID: 0}
 --- !u!82 &491957086 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 697385402706785968, guid: 73d22fa4b6d2b3c45b4879bb1a3c9d46,
@@ -302,16 +314,56 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 0.9992078
       objectReference: {fileID: 0}
+    - target: {fileID: 2900864018992713623, guid: 631a74b6993150e4ba07d61bfae7b5b4,
+        type: 3}
+      propertyPath: hitPaddleSound
+      value: 
+      objectReference: {fileID: 486443722}
+    - target: {fileID: 2900864018992713623, guid: 631a74b6993150e4ba07d61bfae7b5b4,
+        type: 3}
+      propertyPath: hitBallSound
+      value: 
+      objectReference: {fileID: 491049574}
     - target: {fileID: 2900864019714978240, guid: 631a74b6993150e4ba07d61bfae7b5b4,
         type: 3}
       propertyPath: m_Mass
       value: 0.9992078
       objectReference: {fileID: 0}
+    - target: {fileID: 2900864019714978247, guid: 631a74b6993150e4ba07d61bfae7b5b4,
+        type: 3}
+      propertyPath: hitPaddleSound
+      value: 
+      objectReference: {fileID: 486443722}
+    - target: {fileID: 2900864019714978247, guid: 631a74b6993150e4ba07d61bfae7b5b4,
+        type: 3}
+      propertyPath: hitBallSound
+      value: 
+      objectReference: {fileID: 491049574}
     - target: {fileID: 2900864019888465522, guid: 631a74b6993150e4ba07d61bfae7b5b4,
         type: 3}
       propertyPath: m_Mass
       value: 0.9992078
       objectReference: {fileID: 0}
+    - target: {fileID: 2900864019888465525, guid: 631a74b6993150e4ba07d61bfae7b5b4,
+        type: 3}
+      propertyPath: hitPaddleSound
+      value: 
+      objectReference: {fileID: 486443722}
+    - target: {fileID: 2900864019888465525, guid: 631a74b6993150e4ba07d61bfae7b5b4,
+        type: 3}
+      propertyPath: hitBallSound
+      value: 
+      objectReference: {fileID: 491049574}
+    - target: {fileID: 2900864020137949275, guid: 631a74b6993150e4ba07d61bfae7b5b4,
+        type: 3}
+      propertyPath: hitPaddleSound
+      value: 
+      objectReference: {fileID: 486443722}
+    - target: {fileID: 2900864020137949275, guid: 631a74b6993150e4ba07d61bfae7b5b4,
+        type: 3}
+      propertyPath: hitBallSound
+      value: 
+      objectReference: {fileID: 491049574}
     - target: {fileID: 2900864020137949276, guid: 631a74b6993150e4ba07d61bfae7b5b4,
         type: 3}
       propertyPath: m_Mass
@@ -863,7 +915,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &668834213480525880
 PrefabInstance:
@@ -1351,7 +1403,7 @@ PrefabInstance:
     - target: {fileID: 9058994447308893035, guid: 48a0280b7d0b7154dbe0516af04a43f8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9058994447308893035, guid: 48a0280b7d0b7154dbe0516af04a43f8,
         type: 3}
