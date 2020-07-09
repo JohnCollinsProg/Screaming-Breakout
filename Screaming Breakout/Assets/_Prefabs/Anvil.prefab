@@ -132,7 +132,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 5
 --- !u!114 &8254325738537077466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,6 +150,8 @@ MonoBehaviour:
   slowAmount: 0.007
   bounceForce: 20
   animated: 1
+  hitPaddleSound: {fileID: 0}
+  hitBallSound: {fileID: 0}
 --- !u!114 &8254325738537077467
 MonoBehaviour:
   m_ObjectHideFlags: 0

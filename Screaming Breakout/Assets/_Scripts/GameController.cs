@@ -135,6 +135,7 @@ public class GameController : MonoBehaviour
             nextSceneTime = Time.time + postGameTime;
             staticData.AllowBallOnTitle();
             print("Beginning transition to return to title");
+            paddleCont.PlayWinAnimation();
         }
         if (nextSceneTimer && Time.time >= nextSceneTime)
         {
@@ -213,6 +214,9 @@ public class GameController : MonoBehaviour
         blockHealth.TakeDamage();
         if (blockHealth.GetHealth() <= 0)
         {
+            if (blockHealth.shrinker) {
+                PlayHeavyScream();
+            }
             blockHealth.BlockDeath();
             Destroy(blockObj);
         }
@@ -224,18 +228,21 @@ public class GameController : MonoBehaviour
         }
 
         // Play a blood splatter or puff of smoke.
-        PlayLighScream();
+        if (blockHealth.shrinker) {
+            PlayMediumScream();
+        } else {
+            PlayLightScream();
+        }
     }
 
     public void HitPaddle() 
     {
         PlayVariableScream(ballCont.GetSpeed());
-        paddleCont.PlayHurtAnimation();
     }
 
     public void HitWall(string name)
     {
-        PlayLighScream();
+        PlayLightScream();
         if (name == "Roof" && bossDead)
         {
             // Break the roof open
@@ -260,34 +267,33 @@ public class GameController : MonoBehaviour
     {
         if (speed >= heavyThreshold)
         {
-            AudioSource toPlay = screamsHeavy[Random.Range(0, screamsHeavy.Length)];    // Choose random scream from array
-            if (toPlay != null)
-            {
-                toPlay.Play();
-            }
+            PlayHeavyScream();
+            paddleCont.PlayBigHurtAnimation();
         } else if (speed > mediumThreshold)
         {
-            AudioSource toPlay = screamsMedium[Random.Range(0, screamsMedium.Length)];
-            if (toPlay != null)
-            {
-                toPlay.Play();
-            }
+            PlayMediumScream();
+            paddleCont.PlayBigHurtAnimation();
         }
         else if (speed > lightThreshold)
         {
-            AudioSource toPlay = screamsLight[Random.Range(0, screamsLight.Length)];
-            if (toPlay != null)
-            {
-                toPlay.Play();
-            }
+            PlayLightScream();
+            paddleCont.PlayHurtAnimation();
         }
     }
 
-    private void PlayLighScream() {
+    private void PlayLightScream() {
         AudioSource toPlay = screamsLight[Random.Range(0, screamsLight.Length)];    // for now just play light scream  
         if (toPlay != null)
-        {
             toPlay.Play();
-        }
+    }
+    private void PlayMediumScream() {
+        AudioSource toPlay = screamsMedium[Random.Range(0, screamsMedium.Length)];    // for now just play light scream  
+        if (toPlay != null)
+            toPlay.Play();
+    }
+    private void PlayHeavyScream() {
+        AudioSource toPlay = screamsHeavy[Random.Range(0, screamsHeavy.Length)];    // for now just play light scream  
+        if (toPlay != null)
+            toPlay.Play();
     }
 }

@@ -64,6 +64,15 @@ public class PaddleControllerV1 : MonoBehaviour
         animator.SetTrigger("Hurt");
     }
 
+    public void PlayBigHurtAnimation()
+    {
+        animator.SetTrigger("HurtHeavy");
+    }
+
+    public void PlayWinAnimation() {
+        animator.SetBool("WinGame", true);
+    }
+
     public void TakeImpairingDamage(float slowAmount)
     {
         impaired = true;
