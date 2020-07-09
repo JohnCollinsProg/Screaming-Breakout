@@ -15,7 +15,9 @@ public class GameController : MonoBehaviour
     private bool bossDead = false;
     private bool roofOpen = false;
 
+    public bool useLives;
     public int startingLives;
+    private int lives;
     public float lightThreshold, mediumThreshold, heavyThreshold;
 
     public AudioSource[] screamsLight;
@@ -27,7 +29,6 @@ public class GameController : MonoBehaviour
     // Stage = 0 - level 1, stage 1 - level 2, stage 3 - boss
     private int stage = 0;
     private int totalStages;
-    private int lives;
     private int remainingBlocks;
     private int totalBlocks;        // The number of blocks at the start of the game. 
     private float checkBlocksTime;
@@ -146,10 +147,11 @@ public class GameController : MonoBehaviour
             //StartCoroutine(LoadYourAsyncScene());
         }
 
-        /*if (lives <= 0)
+        if (lives <= 0 && useLives)
         {
             print("You're out of lives you big sodding idiot!!");
-        }*/
+            SceneManager.LoadScene("GameOverScene");
+        }
         
         if (Input.GetKey(KeyCode.G))
         {
