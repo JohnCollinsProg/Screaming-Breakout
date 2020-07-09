@@ -117,7 +117,7 @@ public class BossBehaviour : MonoBehaviour
                 
             }
         }
-        if (stage == -1)
+        if (stage == -1)    // Boss is playing death animation
         {
             float progress = (Time.time - deathTime) / (deathComplete - deathTime);
             //print("Death progress: " + progress);
@@ -136,7 +136,7 @@ public class BossBehaviour : MonoBehaviour
             //transform.rotation = Quaternion.Lerp(Quaternion.identity, dyingObj.transform.rotation, progress);
             float zRot = Mathf.LerpAngle(0, dyingObj.transform.rotation.z * Mathf.Rad2Deg, progress);
             transform.rotation = Quaternion.Euler(0f, 0f, zRot);
-            if (progress > 1)
+            if (progress > 1)   // Boss is completely dead
             {
                 //Debug.Break();
                 stage = -2;
@@ -144,6 +144,7 @@ public class BossBehaviour : MonoBehaviour
                 Rigidbody2D rb = gameObject.AddComponent<Rigidbody2D>();
                 rb.gravityScale = 0.7f;
                 rb.velocity = Vector3.zero;
+                gCont.BossDead();// Tell the game controller that the boss is over
             }
         }
     }

@@ -137,7 +137,7 @@ MonoBehaviour:
   stage2Threshold: 9
   shield1: {fileID: 1996122923245595634}
   shield2: {fileID: 4463603889172475501}
-  fallingObj: {fileID: 5401272893002436969, guid: 5bd91668d215f9b44b468993df795de7,
+  fallingObj: {fileID: 553418107614452560, guid: 0ac2717940463cb4d937bfad1b7c33e2,
     type: 3}
   responsiveShield: {fileID: 3096550123713228466, guid: b9f2f20bb0822414ab4626761dfd4f8a,
     type: 3}

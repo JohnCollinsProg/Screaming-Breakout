@@ -364,6 +364,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   shrinker: 0
+  deathFace: {fileID: 0}
+  animated: 0
 --- !u!1 &1363742862963076406
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,6 +462,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   shrinker: 1
+  deathFace: {fileID: 0}
+  animated: 0
 --- !u!61 &3386031361825601951
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -607,6 +611,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   shrinker: 0
+  deathFace: {fileID: 0}
+  animated: 0
 --- !u!1 &2158003268472229996
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,6 +734,131 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   shrinker: 0
+  deathFace: {fileID: 0}
+  animated: 0
+--- !u!1 &2226018131126534891
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7140770854555631620}
+  - component: {fileID: 9017444820809946140}
+  - component: {fileID: 1533754473796263772}
+  - component: {fileID: 685371582583715850}
+  - component: {fileID: 7348325448239803603}
+  m_Layer: 10
+  m_Name: Box (12)
+  m_TagString: Point Block
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7140770854555631620
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2226018131126534891}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.2436204, y: 20, z: 6.1940575}
+  m_LocalScale: {x: 1, y: 0.4, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1972890195122078114}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &9017444820809946140
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2226018131126534891}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &1533754473796263772
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2226018131126534891}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a09d702f10d6cae4ab2398405697c5ba, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!61 &685371582583715850
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2226018131126534891}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &7348325448239803603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2226018131126534891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c36b45be26d12d4d912ffd69f52618e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 1
+  shrinker: 0
+  deathFace: {fileID: 0}
+  animated: 0
 --- !u!1 &2763947582371387305
 GameObject:
   m_ObjectHideFlags: 0
@@ -823,6 +954,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   shrinker: 0
+  deathFace: {fileID: 0}
+  animated: 0
 --- !u!61 &2763947582371387307
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -970,6 +1103,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   shrinker: 0
+  deathFace: {fileID: 0}
+  animated: 0
 --- !u!1 &2763947582526963260
 GameObject:
   m_ObjectHideFlags: 0
@@ -1091,6 +1226,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   shrinker: 0
+  deathFace: {fileID: 0}
+  animated: 0
 --- !u!1 &2763947582857954982
 GameObject:
   m_ObjectHideFlags: 0
@@ -1212,6 +1349,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   shrinker: 0
+  deathFace: {fileID: 0}
+  animated: 0
 --- !u!1 &2763947582924639129
 GameObject:
   m_ObjectHideFlags: 0
@@ -1333,6 +1472,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   shrinker: 0
+  deathFace: {fileID: 0}
+  animated: 0
 --- !u!1 &2763947582999660795
 GameObject:
   m_ObjectHideFlags: 0
@@ -1454,6 +1595,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   shrinker: 0
+  deathFace: {fileID: 0}
+  animated: 0
 --- !u!1 &2763947583039136626
 GameObject:
   m_ObjectHideFlags: 0
@@ -1575,6 +1718,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   shrinker: 0
+  deathFace: {fileID: 0}
+  animated: 0
 --- !u!1 &2763947583274817694
 GameObject:
   m_ObjectHideFlags: 0
@@ -1696,6 +1841,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   shrinker: 0
+  deathFace: {fileID: 0}
+  animated: 0
 --- !u!1 &2763947583398718527
 GameObject:
   m_ObjectHideFlags: 0
@@ -1817,6 +1964,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   shrinker: 0
+  deathFace: {fileID: 0}
+  animated: 0
 --- !u!1 &2763947583529847855
 GameObject:
   m_ObjectHideFlags: 0
@@ -1846,6 +1995,7 @@ Transform:
   m_Children:
   - {fileID: 4377533604418256489}
   - {fileID: 8165354476773101096}
+  - {fileID: 1972890195122078114}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1970,6 +2120,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   shrinker: 0
+  deathFace: {fileID: 0}
+  animated: 0
 --- !u!1 &2861336270692849185
 GameObject:
   m_ObjectHideFlags: 0
@@ -2159,7 +2311,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallOnHit: 1
   gravityScale: 2
+  slowAmount: 0
   bounceForce: 20
+  animated: 0
 --- !u!114 &7460032246774612926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2174,6 +2328,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   shrinker: 0
+  deathFace: {fileID: 0}
+  animated: 0
 --- !u!1 &3110299951060843313
 GameObject:
   m_ObjectHideFlags: 0
@@ -2320,7 +2476,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallOnHit: 1
   gravityScale: 2
+  slowAmount: 0
   bounceForce: 20
+  animated: 0
 --- !u!114 &4831815097349945050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2335,6 +2493,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   shrinker: 0
+  deathFace: {fileID: 0}
+  animated: 0
 --- !u!1 &3355088925252414218
 GameObject:
   m_ObjectHideFlags: 0
@@ -2456,6 +2616,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   shrinker: 0
+  deathFace: {fileID: 0}
+  animated: 0
 --- !u!1 &4302627198254525970
 GameObject:
   m_ObjectHideFlags: 0
@@ -2552,6 +2714,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   shrinker: 1
+  deathFace: {fileID: 0}
+  animated: 0
 --- !u!61 &9125274411415598647
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2755,6 +2919,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   shrinker: 1
+  deathFace: {fileID: 0}
+  animated: 0
 --- !u!61 &3863262465738338331
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2927,7 +3093,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallOnHit: 1
   gravityScale: 2
+  slowAmount: 0
   bounceForce: 20
+  animated: 0
 --- !u!114 &6925766356326348305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2942,6 +3110,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   shrinker: 0
+  deathFace: {fileID: 0}
+  animated: 0
 --- !u!1 &5082226683836307546
 GameObject:
   m_ObjectHideFlags: 0
@@ -3038,6 +3208,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   shrinker: 1
+  deathFace: {fileID: 0}
+  animated: 0
 --- !u!61 &6680647638125951649
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3160,6 +3332,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   shrinker: 1
+  deathFace: {fileID: 0}
+  animated: 0
 --- !u!61 &4356309535047196766
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3307,6 +3481,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   shrinker: 0
+  deathFace: {fileID: 0}
+  animated: 0
 --- !u!1 &6903222075322892186
 GameObject:
   m_ObjectHideFlags: 0
@@ -3453,7 +3629,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallOnHit: 1
   gravityScale: 2
+  slowAmount: 0
   bounceForce: 20
+  animated: 0
 --- !u!114 &8697547708309049083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3468,6 +3646,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   shrinker: 0
+  deathFace: {fileID: 0}
+  animated: 0
 --- !u!1 &6980400683095072780
 GameObject:
   m_ObjectHideFlags: 0
@@ -3645,6 +3825,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   shrinker: 1
+  deathFace: {fileID: 0}
+  animated: 0
 --- !u!61 &5575542538128445336
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3767,6 +3949,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   shrinker: 1
+  deathFace: {fileID: 0}
+  animated: 0
 --- !u!61 &3164048270987169457
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3874,6 +4058,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &8457482667500912140
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1972890195122078114}
+  m_Layer: 0
+  m_Name: Stage 2 (Empty Boss)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1972890195122078114
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8457482667500912140}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.253621, y: 7.1107635, z: -4.918089}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7140770854555631620}
+  m_Father: {fileID: 2763947583529847854}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8699621464190455481
 GameObject:
   m_ObjectHideFlags: 0
@@ -4145,7 +4360,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallOnHit: 1
   gravityScale: 2
+  slowAmount: 0
   bounceForce: 20
+  animated: 0
 --- !u!114 &3655921566145636101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4160,3 +4377,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   shrinker: 0
+  deathFace: {fileID: 0}
+  animated: 0

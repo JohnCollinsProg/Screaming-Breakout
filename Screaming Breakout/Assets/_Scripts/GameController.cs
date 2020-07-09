@@ -21,6 +21,7 @@ public class GameController : MonoBehaviour
     public AudioSource deathSound;
 
     private int mode = 0;
+    // Stage = 0 - level 1, stage 1 - level 2, stage 3 - boss
     private int stage = 0;
     private int totalStages;
     private int lives;
@@ -61,11 +62,19 @@ public class GameController : MonoBehaviour
             remainingBlocks = GetRemainingBlocks();
             checkBlocks = false;
         }
+        if (stage == 2)
+        {
+            //remainingBlocks = -1;
+            stage++;
+            bossBehv.SpawnBoss();
+        }
         if (remainingBlocks == 0)   // All the blocks have been destroyed, progress onto the next stage of the game. 
         {
-            if (stage + 1 < totalStages)
+            
+            if (stage + 1 < totalStages)    // Progress to the next stage
             {
                 stage++;
+                remainingBlocks = GetRemainingBlocks();
                 print("Stage " + stage + " completed, moving onto stage " + (stage + 1));
                 moveStage = true;
                 //stageChangeStartTime = Time.time;
@@ -73,6 +82,7 @@ public class GameController : MonoBehaviour
                 stageChangeProgress = 0f;
                 nextStagePos = destructables.transform.position + stageChangeVector;
             }
+            
         }
         if (moveStage)              // The stage is moving to set up the next stage
         {
@@ -93,6 +103,7 @@ public class GameController : MonoBehaviour
         if (Input.GetKey(KeyCode.G))
         {
             //print("BallObj has this many children: " + ballObj.transform.childCount);
+            print("Stage: " + stage);
             remainingBlocks = GetRemainingBlocks();
             print("Remainging blocks: " + remainingBlocks + ",    stage: " + stage + ",    totalStages: " + totalStages);
         }
