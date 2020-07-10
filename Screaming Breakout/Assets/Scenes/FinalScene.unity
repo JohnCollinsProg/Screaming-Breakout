@@ -1056,7 +1056,7 @@ MonoBehaviour:
   bigBlockScore: 15
   bossHitScore: 3
   bossKillScore: 50
-  livesScore: 30
+  livesScore: 50
   ballResetCost: 50
 --- !u!1 &1188469989 stripped
 GameObject:
@@ -1274,7 +1274,7 @@ PrefabInstance:
     - target: {fileID: 7660610085566520060, guid: 73d22fa4b6d2b3c45b4879bb1a3c9d46,
         type: 3}
       propertyPath: m_Volume
-      value: 0.1
+      value: 0.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73d22fa4b6d2b3c45b4879bb1a3c9d46, type: 3}
@@ -1446,7 +1446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

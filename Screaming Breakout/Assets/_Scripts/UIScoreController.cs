@@ -95,7 +95,7 @@ public class UIScoreController : MonoBehaviour {
     }
 
     private int CalcMaxRally() {
-        return Mathf.RoundToInt(maxRally * 3f);
+        return Mathf.RoundToInt(maxRally * 4f);
     }
 
     private int CalcMaxBounce() {
