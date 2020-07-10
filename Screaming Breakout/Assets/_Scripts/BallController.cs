@@ -43,6 +43,11 @@ public class BallController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /* 
+            mode 0 == ball on paddle
+            mode 1 == ball releasing from paddle
+            mode 2 == ball bouncing normally
+        */
         if (mode == 0 && Input.GetMouseButtonDown(0))   // Release the ball from the paddle
         {
             mode = 1;
@@ -60,7 +65,7 @@ public class BallController : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, 0f, rotation);
         }
 
-        if (mode == 1 || mode == 2)  // Ball is released and bouncing around normally
+        if (mode == 1 || mode == 2)  // Ball is releasing from paddle or bouncing around normally
         {
             rotation += rotationRate * rotationDirection * Time.deltaTime;
             transform.rotation = Quaternion.Euler(0f, 0f, rotation);
@@ -78,6 +83,7 @@ public class BallController : MonoBehaviour
         {
             mode = 0;
             gCont.HitHazzard();
+            gCont.BallReset();
         }
         if ((Input.GetMouseButtonDown(0) && Input.GetMouseButtonDown(1)) || (Input.GetMouseButtonDown(0) && Input.GetMouseButton(1)) || (Input.GetMouseButton(0) && Input.GetMouseButtonDown(1))){
             mode = 0;
@@ -103,6 +109,7 @@ public class BallController : MonoBehaviour
             Vector3 direction = Vector3.Reflect(lastVelocity.normalized, collision.GetContact(0).normal);
             rb.velocity = direction * Mathf.Max(speed);
             rotationDirection *= -1;// Reverse direction of ball rotation
+            gCont.Bounce();
         }
         if (collision.gameObject.layer == 8)    // Ball hit the paddle
         {

@@ -55,8 +55,10 @@ public class GameController : MonoBehaviour
     private StaticData staticData;
     public GameObject dataObjPrefab;
 
-    public GameObject uiTextObj;
-    private UIController uiTextCont;
+    public GameObject uiLivesObj;
+    private UILivesController uiLivesCont;
+    public GameObject uiScoreObj;
+    private UIScoreController uiScoreCont;   
 
     void Start()
     {
@@ -70,8 +72,9 @@ public class GameController : MonoBehaviour
         ballCont = ballObj.GetComponent<BallController>();
         paddleCont = paddleObj.GetComponent<PaddleControllerV1>();
         bossBehv = bossObj.GetComponent<BossBehaviour>();
-        uiTextCont = uiTextObj.GetComponent<UIController>();
-        uiTextCont.SetLives(startingLives);
+        uiLivesCont = uiLivesObj.GetComponent<UILivesController>();
+        uiLivesCont.SetLives(startingLives);
+        uiScoreCont = uiScoreObj.GetComponent<UIScoreController>();
 
         stageChangeVector = new Vector3(0f, stageDistance, 0f);
 
@@ -144,6 +147,7 @@ public class GameController : MonoBehaviour
             staticData.AllowBallOnTitle();
             print("Beginning transition to return to title");
             paddleCont.PlayWinAnimation();
+            uiScoreCont.GameWon();
         }
         if (nextSceneTimer && Time.time >= nextSceneTime)
         {
@@ -219,8 +223,9 @@ public class GameController : MonoBehaviour
             deathSound.Play();
         lives--;
         if (lives > 0) {
-            uiTextCont.SetLives(lives);
+            uiLivesCont.SetLives(lives);
         }
+        uiScoreCont.Die();
     }
 
     public void HitBlock(GameObject blockObj)
@@ -228,10 +233,12 @@ public class GameController : MonoBehaviour
         Vector3 blockPos = blockObj.transform.position; // Save this location so it can center destruction effect
         BlockHealth blockHealth = blockObj.GetComponent<BlockHealth>(); // I don't like this, but I'm not sure how else to implement it. 
         blockHealth.TakeDamage();
+        uiScoreCont.BlockHit();
         if (blockHealth.GetHealth() <= 0)
         {
             if (blockHealth.shrinker) {
                 PlayHeavyScream();
+                uiScoreCont.BigBlockDeath();
             }
             blockHealth.BlockDeath();
             Destroy(blockObj);
@@ -254,6 +261,7 @@ public class GameController : MonoBehaviour
     public void HitPaddle() 
     {
         PlayVariableScream(ballCont.GetSpeed());
+        uiScoreCont.HitPaddle();
     }
 
     public void HitWall(string name)
@@ -271,12 +279,21 @@ public class GameController : MonoBehaviour
     public void HitBoss(Vector2 point)
     {
         bossBehv.TakeDamage(point);
+        uiScoreCont.BossHit();
         // play a sound? Or maybe the boss should do this depending on its health. 
     }
 
     public void BossDead()
     {
         bossDead = true;
+    }
+
+    public void Bounce() {
+        uiScoreCont.Bounce();
+    }
+
+    public void BallReset() {
+        uiScoreCont.BallReset();
     }
 
     private void PlayVariableScream(float speed) 
