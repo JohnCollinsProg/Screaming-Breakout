@@ -68,6 +68,7 @@ public class UIScoreController : MonoBehaviour {
     public void GameWon() {
         ComboReset();
         CalcTotal();
+        text.text = "";
         ScoreSummary();
     }
 

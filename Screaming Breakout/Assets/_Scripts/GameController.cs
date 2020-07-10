@@ -20,7 +20,7 @@ public class GameController : MonoBehaviour
     private int lives;
     public float lightThreshold, mediumThreshold, heavyThreshold;
     private float gameoverTime;
-    private float deathPeriod = 5f;
+    public float deathPeriod = 5f;
 
     public AudioSource[] screamsLight;
     public AudioSource[] screamsMedium;
