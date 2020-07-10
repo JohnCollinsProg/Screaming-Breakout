@@ -11,6 +11,6 @@ public class UILivesController : MonoBehaviour {
     }
 
     public void SetLives(int lives) {
-        text.text = "Lives: " + lives.ToString();
+        text.text = "Lives: " + (lives-1).ToString();
     }
 }

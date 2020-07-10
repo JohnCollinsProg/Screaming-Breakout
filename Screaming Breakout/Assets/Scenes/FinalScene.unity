@@ -447,7 +447,12 @@ PrefabInstance:
     - target: {fileID: 2502010298262281015, guid: d0b72b16bec9bf2419ff23e363be7162,
         type: 3}
       propertyPath: startingLives
-      value: 7
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502010298262281015, guid: d0b72b16bec9bf2419ff23e363be7162,
+        type: 3}
+      propertyPath: deathPeriod
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0b72b16bec9bf2419ff23e363be7162, type: 3}
