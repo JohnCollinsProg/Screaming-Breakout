@@ -62,6 +62,7 @@ public class UIScoreController : MonoBehaviour {
     }
 
     public void Die() {
+        livesUsed++;
         ComboReset();
     }
 
@@ -91,7 +92,7 @@ public class UIScoreController : MonoBehaviour {
     }
 
     private void UpdateUI() {
-        text.text = "Score: " + score.ToString() + "\nMulti: " + multiplier.ToString() + "x";
+        text.text = "Score: " + score.ToString() + "\nMulti: x" + multiplier.ToString();
     }
 
     private int CalcMaxRally() {
@@ -122,7 +123,7 @@ public class UIScoreController : MonoBehaviour {
             + "Longest rally(" + maxRally.ToString() + "):\t\t\t\t\t" + CalcMaxRally().ToString() + "\n"
             + "Most bounces in a row(" + maxBounces.ToString() + "):\t" + CalcMaxBounce().ToString() + "\n"
             + "Lives used(" + livesUsed.ToString() +"):\t\t\t\t\t\t" + CalcLives().ToString() + "\n"
-            + "Ball resets:\t\t\t\t\t\t\t" + CalcBallResets() + "\n\n"
+            + "Ball resets(" + ballResets.ToString() + "):\t\t\t\t\t\t" + CalcBallResets() + "\n\n"
             + "Final score:\t\t\t\t\t\t\t" + "" + totalScore.ToString();
     }
 }

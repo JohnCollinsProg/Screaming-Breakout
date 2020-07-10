@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class TitleController : MonoBehaviour
 {
-    // 0 = displaying only title, 1 = displaying click to progress, 2 = displaying tutorial, 3 = loading game
+    // 0 = displaying only title, 1 = displaying click to progress, 2 = displaying tutorial, 3 = displaying tutorial part 2, 4 = loading game
     private int stage = 0;
     private float displayClick = 3f;
 
@@ -17,10 +17,11 @@ public class TitleController : MonoBehaviour
     public Vector3 initVelo;
     private Rigidbody2D ballRb;
 
-    public GameObject clickPrompt, tutorial;
+    public GameObject clickPrompt, tutorial, tutorial2;
 
     void Start()
     {
+
         dataObj = GameObject.Find("Data");
         if (dataObj != null)
         {
@@ -34,15 +35,21 @@ public class TitleController : MonoBehaviour
                 ballRb.velocity = initVelo;
             }
         }
+        tutorial2.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (stage == 2 && Input.GetMouseButtonDown(0))  // Load game
+        if (stage == 3 && Input.GetMouseButtonDown(0))  // Load game
         {
             print("Loading Scene");
             SceneManager.LoadScene("FinalScene");
+        }
+        if (stage == 2 && Input.GetMouseButtonDown(0)) {
+            stage = 3;
+            print("enabling tutorial2");
+            tutorial2.SetActive(true);
         }
         if (stage == 1 && Input.GetMouseButtonDown(0))  // Display tutorial
         {
