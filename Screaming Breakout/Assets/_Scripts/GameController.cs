@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -58,7 +59,10 @@ public class GameController : MonoBehaviour
     public GameObject uiLivesObj;
     private UILivesController uiLivesCont;
     public GameObject uiScoreObj;
-    private UIScoreController uiScoreCont;   
+    private UIScoreController uiScoreCont;
+
+    public GameObject uiHealthBarObj;
+    private BossHealthBarController uiHealthBarCont;         
 
     void Start()
     {
@@ -75,6 +79,9 @@ public class GameController : MonoBehaviour
         uiLivesCont = uiLivesObj.GetComponent<UILivesController>();
         uiLivesCont.SetLives(startingLives);
         uiScoreCont = uiScoreObj.GetComponent<UIScoreController>();
+
+        uiHealthBarCont = uiHealthBarObj.GetComponent<BossHealthBarController>();
+        uiHealthBarCont.SetMaxHealth(bossBehv.maxHealth);
 
         stageChangeVector = new Vector3(0f, stageDistance, 0f);
 
@@ -280,11 +287,21 @@ public class GameController : MonoBehaviour
     {
         bossBehv.TakeDamage(point);
         uiScoreCont.BossHit();
+        uiHealthBarCont.TakeDamage();
         // play a sound? Or maybe the boss should do this depending on its health. 
+    }
+
+    public void BossBattleStart() {
+        uiHealthBarCont.BossBattleStart();
+    }
+
+    public void SetBossHealth() {
+        uiHealthBarCont.SetHealth(1);
     }
 
     public void BossDead()
     {
+        uiHealthBarCont.BossDead();
         bossDead = true;
     }
 

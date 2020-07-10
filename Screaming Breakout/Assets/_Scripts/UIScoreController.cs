@@ -23,7 +23,7 @@ public class UIScoreController : MonoBehaviour {
     public int bigBlockScore = 15;
     public int bossHitScore = 3;
     public int bossKillScore = 50;
-    public int livesScore = 50;
+    public int livesScore = 25;
     public int ballResetCost = 25;
 
     private int highScore = 0;
@@ -95,11 +95,11 @@ public class UIScoreController : MonoBehaviour {
     }
 
     private int CalcMaxRally() {
-        return Mathf.RoundToInt(maxRally * 1.5f);
+        return Mathf.RoundToInt(maxRally * 3f);
     }
 
     private int CalcMaxBounce() {
-        return Mathf.RoundToInt(maxBounces * 0.8f);
+        return Mathf.RoundToInt(maxBounces * 1f);
     }
 
     private int CalcLives() {
@@ -118,20 +118,11 @@ public class UIScoreController : MonoBehaviour {
     }
 
     public void ScoreSummary() {
-        string hs;
-        if (totalScore > highScore) {
-            highScore = totalScore;
-            hs = "New high score!\t\t\t\t\t\t";
-        } else {
-            hs = "Final score:\t\t\t\t\t\t\t";
-        }
-
-
         summaryText.text = "Score:\t\t\t\t\t\t\t\t\t" + score.ToString() + "\n"
             + "Longest rally(" + maxRally.ToString() + "):\t\t\t\t\t" + CalcMaxRally().ToString() + "\n"
-            + "Most bounces in a row(" + maxBounces.ToString() + "):\t\t" + CalcMaxBounce().ToString() + "\n"
+            + "Most bounces in a row(" + maxBounces.ToString() + "):\t" + CalcMaxBounce().ToString() + "\n"
             + "Lives used(" + livesUsed.ToString() +"):\t\t\t\t\t\t" + CalcLives().ToString() + "\n"
             + "Ball resets:\t\t\t\t\t\t\t" + CalcBallResets() + "\n\n"
-            + hs + "" + totalScore.ToString();
+            + "Final score:\t\t\t\t\t\t\t" + "" + totalScore.ToString();
     }
 }

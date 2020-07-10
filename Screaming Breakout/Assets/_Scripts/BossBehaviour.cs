@@ -65,8 +65,10 @@ public class BossBehaviour : MonoBehaviour
         {
             print("Boss health: " + health + ",    stage: " + stage);
         }
-        if (Input.GetKeyDown(KeyCode.Y))
+        if (Input.GetKeyDown(KeyCode.Y)) {
             health = 1;
+            gCont.SetBossHealth();
+        }
         if (Input.GetKeyDown(KeyCode.U))
             SpawnBoss();
 
@@ -89,6 +91,7 @@ public class BossBehaviour : MonoBehaviour
                 shield1.SetActive(true);
                 shield2.SetActive(true);
                 print("Boss reached top point");
+                gCont.BossBattleStart();
             }
             else                // Travelling to top point, increasing in scale and colour
             {
