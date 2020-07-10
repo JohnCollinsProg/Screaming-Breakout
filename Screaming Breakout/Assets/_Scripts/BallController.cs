@@ -109,7 +109,8 @@ public class BallController : MonoBehaviour
             Vector3 direction = Vector3.Reflect(lastVelocity.normalized, collision.GetContact(0).normal);
             rb.velocity = direction * Mathf.Max(speed);
             rotationDirection *= -1;// Reverse direction of ball rotation
-            gCont.Bounce();
+            if (gCont != null)
+                gCont.Bounce();
         }
         if (collision.gameObject.layer == 8)    // Ball hit the paddle
         {
